@@ -79,8 +79,7 @@ code char at __CONFIG7H config7h = 0xFF;
 
 #define	SET_RA0			0x01		// vendor-specific request to set RA0 to high
 #define	CLR_RA0			0x02		// vendor-specific request to set RA0 to low
-
-//#pragma udata
+
 BUFDESC USB_buffer_desc;
 unsigned char USB_buffer_data[8];
 unsigned char USB_error_flags;
@@ -88,7 +87,7 @@ unsigned char USB_curr_config;
 unsigned char USB_device_status;
 unsigned char USB_dev_req;
 unsigned char USB_address_pending;
-unsigned char *USB_desc_ptr;
+code unsigned char *USB_desc_ptr;
 unsigned char USB_bytes_left;
 unsigned char USB_packet_length;
 unsigned char USB_USTAT;
@@ -96,7 +95,7 @@ unsigned char USB_USWSTAT;
 unsigned char COUNTER_L;
 unsigned char COUNTER_H;
 
-const unsigned char Device[] = {
+code const unsigned char Device[] = {
 	0x12,	// bLength
 	DEVICE,	// bDescriptorType
 	0x10,	// bcdUSB (low byte)
@@ -117,7 +116,7 @@ const unsigned char Device[] = {
 	NUM_CONFIGURATIONS	// bNumConfigurations
 };
 
-const unsigned char Configuration1[] = {
+code const unsigned char Configuration1[] = {
 	0x09,	// bLength
 	CONFIGURATION,	// bDescriptorType
 	0x12,	// wTotalLength (low byte)
@@ -138,14 +137,14 @@ const unsigned char Configuration1[] = {
 	0x00	// iInterface (none)
 };
 
-const unsigned char String0[] = {
+code const unsigned char String0[] = {
 	0x04,	// bLength
 	STRING,	// bDescriptorType
 	0x09,	// wLANGID[0] (low byte)
 	0x04	// wLANGID[0] (high byte)
 };
 
-const unsigned char String1[] = {
+code const unsigned char String1[] = {
 	0x36,	// bLength
 	STRING,	// bDescriptorType
 	'M', 0x00, 'i', 0x00, 'c', 0x00, 'r', 0x00, 'o', 0x00, 'c', 0x00, 'h', 0x00, 'i', 0x00, 'p', 0x00, ' ', 0x00,
@@ -153,7 +152,7 @@ const unsigned char String1[] = {
 	'I', 0x00, 'n', 0x00, 'c', 0x00, '.', 0x00
 };
 
-const unsigned char String2[] = {
+code const unsigned char String2[] = {
 	0x44,	// bLength
 	STRING,	// bDescriptorType
 	'E', 0x00, 'N', 0x00, 'G', 0x00, 'R', 0x00, ' ', 0x00, '2', 0x00, '2', 0x00, '1', 0x00, '0', 0x00, ' ', 0x00,
@@ -180,6 +179,7 @@ void InitUSB(void) {
 
 void ServiceUSB(void) {
 	BUFDESC *buf_desc_ptr;
+	unsigned char index;
 
 	if (UIRbits.UERRIF) {
 		UEIR = 0x00;
@@ -223,11 +223,25 @@ void ServiceUSB(void) {
 		UEP13 = 0x00;
 		UEP14 = 0x00;
 		UEP15 = 0x00;
+		
 		BD0O.bytecount = MAX_PACKET_SIZE;
 		BD0O.address = EP0_OUT_buffer;	// EP0 OUT gets a buffer
 		BD0O.status = 0x88;				// set UOWN bit (USB can write)
 		BD0I.address = EP0_IN_buffer;	// EP0 IN gets a buffer
 		BD0I.status = 0x08;				// clear UOWN bit (MCU can write)
+		for(index=1; index <= 15; index++)
+		{
+			(&BD0O+index*2*sizeof(BUFDESC))->bytecount = MAX_PACKET_SIZE;
+			// EP0 OUT gets a buffer
+			(&BD0O+index*2*sizeof(BUFDESC))->address = EP0_OUT_buffer+2*index*MAX_PACKET_SIZE;
+			// set UOWN bit (USB can write)	
+			(&BD0O+index*2*sizeof(BUFDESC))->status = 0x08;	
+			// EP0 IN gets a buffer			
+			(&BD0O+index*2*sizeof(BUFDESC)+sizeof(BUFDESC))->address = EP0_OUT_buffer+2*index*MAX_PACKET_SIZE+MAX_PACKET_SIZE;
+			// clear UOWN bit (MCU can write)	
+			(&BD0O+index*2*sizeof(BUFDESC)+sizeof(BUFDESC))->status = 0x08;				
+		}
+	
 		UADDR = 0x00;				// set USB Address to 0
 		UIR = 0x00;				// clear all the USB interrupt flags
 		UEP0 = ENDPT_CONTROL;	// EP0 is a control pipe and requires an ACK
@@ -239,7 +253,7 @@ void ServiceUSB(void) {
 		PORTBbits.RB1 = 1;		// set bit 1 of PORTB to indicate Powered state
 #endif
 	} else if (UIRbits.TRNIF) {
-		buf_desc_ptr = (BUFDESC *)((unsigned char *)(&BD0O)+(USTAT&0x7C));	// mask out bits 0, 1, and 7 of USTAT for offset into the buffer descriptor table
+		buf_desc_ptr = (BUFDESC *)((__data unsigned char *)(&BD0O)+(USTAT&0x7C));	// mask out bits 0, 1, and 7 of USTAT for offset into the buffer descriptor table
 		USB_buffer_desc.status = buf_desc_ptr->status;
 		USB_buffer_desc.bytecount = buf_desc_ptr->bytecount;
 		USB_buffer_desc.address = buf_desc_ptr->address;
@@ -596,7 +610,7 @@ void VendorRequests(void) {
 }
 
 void ProcessInToken(void) {
-	switch (USB_USTAT&0x18) {	// extract the EP bits
+	switch (USB_USTAT&0x78) {	// extract the EP bits
 		case EP0:
 			switch (USB_dev_req) {
 				case SET_ADDRESS:
@@ -655,7 +669,7 @@ void ProcessInToken(void) {
 }
 
 void ProcessOutToken(void) {
-	switch (USB_USTAT&0x18) {	// extract the EP bits
+	switch (USB_USTAT&0x78) {	// extract the EP bits
 		case EP0:
 			BD0O.bytecount = MAX_PACKET_SIZE;
 			BD0O.status = 0x88;

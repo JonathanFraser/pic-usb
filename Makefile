@@ -1,5 +1,5 @@
 lab1.hex: lab1.c
-	sdcc -mpic16 -p18f2455 -pstack-model=large lab1.c
+	sdcc -mpic16 -p18f2455 --model-small -pstack-model=small lab1.c
 
 .PHONY: clean
 
