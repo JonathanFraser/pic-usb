@@ -1,0 +1,2 @@
+DEVICE=/dev/ttyUSB0
+BITRULES=0x1f

@@ -1,0 +1,3335 @@
+gplink-0.13.4 alpha
+Copyright (c) 1998-2005 gputils project
+Listing File Generated: 7-22-2008  17:50:40
+ 
+ 
+Address  Value    Disassembly              Source
+-------  -----    -----------              ------
+                                           ;--------------------------------------------------------
+                                           ; File Created by SDCC : free open source ANSI-C Compiler
+                                           ; Version 2.7.0 #4818 (Jan 18 2008)
+                                           ; This file generated Tue Jul 22 17:50:40 2008
+                                           ;--------------------------------------------------------
+                                           ; PIC16 port for the Microchip 16-bit core micros
+                                           ;--------------------------------------------------------
+                                           	list	p=18f2455
+                                           	__config 0x300000, 0xf0
+                                           	__config 0x300001, 0x32
+                                           	__config 0x300002, 0xef
+                                           	__config 0x300003, 0xfe
+                                           	__config 0x300005, 0xf8
+                                           	__config 0x300006, 0x9b
+                                           	__config 0x300008, 0xff
+                                           	__config 0x300009, 0xff
+                                           	__config 0x30000a, 0xff
+                                           	__config 0x30000b, 0xff
+                                           	__config 0x30000c, 0xff
+                                           	__config 0x30000d, 0xff
+                                           
+                                           	radix dec
+                                           
+                                           ;--------------------------------------------------------
+                                           ; public variables in this module
+                                           ;--------------------------------------------------------
+                                           	global _ProcessSetupToken
+                                           	global _StandardRequests
+                                           	global _ClassRequests
+                                           	global _VendorRequests
+                                           	global _ProcessInToken
+                                           	global _ProcessOutToken
+                                           	global _SendDescriptorPacket
+                                           	global _BD0O
+                                           	global _BD0I
+                                           	global _BD1O
+                                           	global _BD1I
+                                           	global _BD2O
+                                           	global _BD2I
+                                           	global _BD3O
+                                           	global _BD3I
+                                           	global _BD4O
+                                           	global _BD4I
+                                           	global _BD5O
+                                           	global _BD5I
+                                           	global _BD6O
+                                           	global _BD6I
+                                           	global _BD7O
+                                           	global _BD7I
+                                           	global _BD8O
+                                           	global _BD8I
+                                           	global _BD9O
+                                           	global _BD9I
+                                           	global _BD10O
+                                           	global _BD10I
+                                           	global _BD11O
+                                           	global _BD11I
+                                           	global _BD12O
+                                           	global _BD12I
+                                           	global _BD13O
+                                           	global _BD13I
+                                           	global _BD14O
+                                           	global _BD14I
+                                           	global _BD15O
+                                           	global _BD15I
+                                           	global _EP0_OUT_buffer
+                                           	global _EP0_IN_buffer
+                                           	global _EP1_OUT_buffer
+                                           	global _EP1_IN_buffer
+                                           	global _EP2_OUT_buffer
+                                           	global _EP2_IN_buffer
+                                           	global _EP3_OUT_buffer
+                                           	global _EP3_IN_buffer
+                                           	global _EP4_OUT_buffer
+                                           	global _EP4_IN_buffer
+                                           	global _EP5_OUT_buffer
+                                           	global _EP5_IN_buffer
+                                           	global _EP6_OUT_buffer
+                                           	global _EP6_IN_buffer
+                                           	global _EP7_OUT_buffer
+                                           	global _EP7_IN_buffer
+                                           	global _EP8_OUT_buffer
+                                           	global _EP8_IN_buffer
+                                           	global _EP9_OUT_buffer
+                                           	global _EP9_IN_buffer
+                                           	global _EP10_OUT_buffer
+                                           	global _EP10_IN_buffer
+                                           	global _EP11_OUT_buffer
+                                           	global _EP11_IN_buffer
+                                           	global _EP12_OUT_buffer
+                                           	global _EP12_IN_buffer
+                                           	global _EP13_OUT_buffer
+                                           	global _EP13_IN_buffer
+                                           	global _EP14_OUT_buffer
+                                           	global _EP14_IN_buffer
+                                           	global _EP15_OUT_buffer
+                                           	global _EP15_IN_buffer
+                                           	global _USB_buffer_desc
+                                           	global _USB_buffer_data
+                                           	global _USB_error_flags
+                                           	global _USB_curr_config
+                                           	global _USB_device_status
+                                           	global _USB_dev_req
+                                           	global _USB_address_pending
+                                           	global _USB_desc_ptr
+                                           	global _USB_bytes_left
+                                           	global _USB_packet_length
+                                           	global _USB_USTAT
+                                           	global _USB_USWSTAT
+                                           	global _InitUSB
+                                           	global _ServiceUSB
+                                           	global _main
+                                           	global _Device
+                                           	global _Configuration1
+                                           	global _String0
+                                           	global _String1
+                                           	global _String2
+                                           
+                                           ;--------------------------------------------------------
+                                           ; extern variables in this module
+                                           ;--------------------------------------------------------
+                                           	extern __gptrget1
+                                           	extern __gptrput1
+                                           	extern _SPPDATAbits
+                                           	extern _SPPCFGbits
+                                           	extern _SPPEPSbits
+                                           	extern _SPPCONbits
+                                           	extern _UFRMLbits
+                                           	extern _UFRMHbits
+                                           	extern _UIRbits
+                                           	extern _UIEbits
+                                           	extern _UEIRbits
+                                           	extern _UEIEbits
+                                           	extern _USTATbits
+                                           	extern _UCONbits
+                                           	extern _UADDRbits
+                                           	extern _UCFGbits
+                                           	extern _UEP0bits
+                                           	extern _UEP1bits
+                                           	extern _UEP2bits
+                                           	extern _UEP3bits
+                                           	extern _UEP4bits
+                                           	extern _UEP5bits
+                                           	extern _UEP6bits
+                                           	extern _UEP7bits
+                                           	extern _UEP8bits
+                                           	extern _UEP9bits
+                                           	extern _UEP10bits
+                                           	extern _UEP11bits
+                                           	extern _UEP12bits
+                                           	extern _UEP13bits
+                                           	extern _UEP14bits
+                                           	extern _UEP15bits
+                                           	extern _PORTAbits
+                                           	extern _PORTBbits
+                                           	extern _PORTCbits
+                                           	extern _PORTDbits
+                                           	extern _PORTEbits
+                                           	extern _LATAbits
+                                           	extern _LATBbits
+                                           	extern _LATCbits
+                                           	extern _LATDbits
+                                           	extern _LATEbits
+                                           	extern _TRISAbits
+                                           	extern _TRISBbits
+                                           	extern _TRISCbits
+                                           	extern _TRISDbits
+                                           	extern _TRISEbits
+                                           	extern _OSCTUNEbits
+                                           	extern _PIE1bits
+                                           	extern _PIR1bits
+                                           	extern _IPR1bits
+                                           	extern _PIE2bits
+                                           	extern _PIR2bits
+                                           	extern _IPR2bits
+                                           	extern _EECON1bits
+                                           	extern _RCSTAbits
+                                           	extern _TXSTAbits
+                                           	extern _T3CONbits
+                                           	extern _CMCONbits
+                                           	extern _CVRCONbits
+                                           	extern _ECCP1ASbits
+                                           	extern _ECCP1DELbits
+                                           	extern _BAUDCONbits
+                                           	extern _CCP2CONbits
+                                           	extern _CCP1CONbits
+                                           	extern _ADCON2bits
+                                           	extern _ADCON1bits
+                                           	extern _ADCON0bits
+                                           	extern _SSPCON2bits
+                                           	extern _SSPCON1bits
+                                           	extern _SSPSTATbits
+                                           	extern _T2CONbits
+                                           	extern _T1CONbits
+                                           	extern _RCONbits
+                                           	extern _WDTCONbits
+                                           	extern _HLVDCONbits
+                                           	extern _OSCCONbits
+                                           	extern _T0CONbits
+                                           	extern _STATUSbits
+                                           	extern _FSR2Hbits
+                                           	extern _BSRbits
+                                           	extern _FSR1Hbits
+                                           	extern _FSR0Hbits
+                                           	extern _INTCON3bits
+                                           	extern _INTCON2bits
+                                           	extern _INTCONbits
+                                           	extern _TBLPTRUbits
+                                           	extern _PCLATHbits
+                                           	extern _PCLATUbits
+                                           	extern _STKPTRbits
+                                           	extern _TOSUbits
+                                           	extern _SPPDATA
+                                           	extern _SPPCFG
+                                           	extern _SPPEPS
+                                           	extern _SPPCON
+                                           	extern _UFRML
+                                           	extern _UFRMH
+                                           	extern _UIR
+                                           	extern _UIE
+                                           	extern _UEIR
+                                           	extern _UEIE
+                                           	extern _USTAT
+                                           	extern _UCON
+                                           	extern _UADDR
+                                           	extern _UCFG
+                                           	extern _UEP0
+                                           	extern _UEP1
+                                           	extern _UEP2
+                                           	extern _UEP3
+                                           	extern _UEP4
+                                           	extern _UEP5
+                                           	extern _UEP6
+                                           	extern _UEP7
+                                           	extern _UEP8
+                                           	extern _UEP9
+                                           	extern _UEP10
+                                           	extern _UEP11
+                                           	extern _UEP12
+                                           	extern _UEP13
+                                           	extern _UEP14
+                                           	extern _UEP15
+                                           	extern _PORTA
+                                           	extern _PORTB
+                                           	extern _PORTC
+                                           	extern _PORTD
+                                           	extern _PORTE
+                                           	extern _LATA
+                                           	extern _LATB
+                                           	extern _LATC
+                                           	extern _LATD
+                                           	extern _LATE
+                                           	extern _TRISA
+                                           	extern _TRISB
+                                           	extern _TRISC
+                                           	extern _TRISD
+                                           	extern _TRISE
+                                           	extern _OSCTUNE
+                                           	extern _PIE1
+                                           	extern _PIR1
+                                           	extern _IPR1
+                                           	extern _PIE2
+                                           	extern _PIR2
+                                           	extern _IPR2
+                                           	extern _EECON1
+                                           	extern _EECON2
+                                           	extern _EEDATA
+                                           	extern _EEADR
+                                           	extern _RCSTA
+                                           	extern _TXSTA
+                                           	extern _TXREG
+                                           	extern _RCREG
+                                           	extern _SPBRG
+                                           	extern _SPBRGH
+                                           	extern _T3CON
+                                           	extern _TMR3L
+                                           	extern _TMR3H
+                                           	extern _CMCON
+                                           	extern _CVRCON
+                                           	extern _ECCP1AS
+                                           	extern _ECCP1DEL
+                                           	extern _BAUDCON
+                                           	extern _CCP2CON
+                                           	extern _CCPR2L
+                                           	extern _CCPR2H
+                                           	extern _CCP1CON
+                                           	extern _CCPR1L
+                                           	extern _CCPR1H
+                                           	extern _ADCON2
+                                           	extern _ADCON1
+                                           	extern _ADCON0
+                                           	extern _ADRESL
+                                           	extern _ADRESH
+                                           	extern _SSPCON2
+                                           	extern _SSPCON1
+                                           	extern _SSPSTAT
+                                           	extern _SSPADD
+                                           	extern _SSPBUF
+                                           	extern _T2CON
+                                           	extern _PR2
+                                           	extern _TMR2
+                                           	extern _T1CON
+                                           	extern _TMR1L
+                                           	extern _TMR1H
+                                           	extern _RCON
+                                           	extern _WDTCON
+                                           	extern _HLVDCON
+                                           	extern _OSCCON
+                                           	extern _T0CON
+                                           	extern _TMR0L
+                                           	extern _TMR0H
+                                           	extern _STATUS
+                                           	extern _FSR2L
+                                           	extern _FSR2H
+                                           	extern _PLUSW2
+                                           	extern _PREINC2
+                                           	extern _POSTDEC2
+                                           	extern _POSTINC2
+                                           	extern _INDF2
+                                           	extern _BSR
+                                           	extern _FSR1L
+                                           	extern _FSR1H
+                                           	extern _PLUSW1
+                                           	extern _PREINC1
+                                           	extern _POSTDEC1
+                                           	extern _POSTINC1
+                                           	extern _INDF1
+                                           	extern _WREG
+                                           	extern _FSR0L
+                                           	extern _FSR0H
+                                           	extern _PLUSW0
+                                           	extern _PREINC0
+                                           	extern _POSTDEC0
+                                           	extern _POSTINC0
+                                           	extern _INDF0
+                                           	extern _INTCON3
+                                           	extern _INTCON2
+                                           	extern _INTCON
+                                           	extern _PRODL
+                                           	extern _PRODH
+                                           	extern _TABLAT
+                                           	extern _TBLPTRL
+                                           	extern _TBLPTRH
+                                           	extern _TBLPTRU
+                                           	extern _PCL
+                                           	extern _PCLATH
+                                           	extern _PCLATU
+                                           	extern _STKPTR
+                                           	extern _TOSL
+                                           	extern _TOSH
+                                           	extern _TOSU
+                                           	extern __mulint
+                                           ;--------------------------------------------------------
+                                           ;	Equates to used internal registers
+                                           ;--------------------------------------------------------
+                                           STATUS	equ	0xfd8
+                                           PCL	equ	0xff9
+                                           PCLATH	equ	0xffa
+                                           PCLATU	equ	0xffb
+                                           WREG	equ	0xfe8
+                                           TBLPTRL	equ	0xff6
+                                           TBLPTRH	equ	0xff7
+                                           TBLPTRU	equ	0xff8
+                                           TABLAT	equ	0xff5
+                                           FSR0L	equ	0xfe9
+                                           FSR0H	equ	0xfea
+                                           FSR1L	equ	0xfe1
+                                           FSR2L	equ	0xfd9
+                                           INDF0	equ	0xfef
+                                           POSTINC0	equ	0xfee
+                                           POSTDEC1	equ	0xfe5
+                                           PREINC1	equ	0xfe4
+                                           PRODL	equ	0xff3
+                                           
+                                           
+                                           ; Internal registers
+                                           .registers	udata_ovr	0x0000
+                                           r0x00	res	1
+                                           r0x01	res	1
+                                           r0x02	res	1
+                                           r0x03	res	1
+                                           r0x04	res	1
+                                           r0x05	res	1
+                                           r0x06	res	1
+                                           r0x07	res	1
+                                           r0x08	res	1
+                                           r0x09	res	1
+                                           r0x0a	res	1
+                                           r0x0b	res	1
+                                           
+                                           udata_lab1_0	udata
+                                           _USB_curr_config	res	1
+                                           
+                                           udata_lab1_1	udata
+                                           _USB_USWSTAT	res	1
+                                           
+                                           udata_lab1_2	udata
+                                           _USB_device_status	res	1
+                                           
+                                           udata_lab1_3	udata
+                                           _USB_dev_req	res	1
+                                           
+                                           udata_lab1_4	udata
+                                           _USB_USTAT	res	1
+                                           
+                                           udata_lab1_5	udata
+                                           _USB_error_flags	res	1
+                                           
+                                           udata_lab1_6	udata
+                                           _USB_buffer_desc	res	4
+                                           
+                                           udata_lab1_7	udata
+                                           _USB_buffer_data	res	8
+                                           
+                                           udata_lab1_8	udata
+                                           _USB_address_pending	res	1
+                                           
+                                           udata_lab1_9	udata
+                                           _USB_desc_ptr	res	3
+                                           
+                                           udata_lab1_10	udata
+                                           _USB_bytes_left	res	1
+                                           
+                                           udata_lab1_11	udata
+                                           _USB_packet_length	res	1
+                                           
+                                           
+                                           ustat_lab1_00	udata	0X0400
+                                           _BD0O	res	4
+                                           _BD0I	res	4
+                                           _BD1O	res	4
+                                           _BD1I	res	4
+                                           _BD2O	res	4
+                                           _BD2I	res	4
+                                           _BD3O	res	4
+                                           _BD3I	res	4
+                                           _BD4O	res	4
+                                           _BD4I	res	4
+                                           _BD5O	res	4
+                                           _BD5I	res	4
+                                           _BD6O	res	4
+                                           _BD6I	res	4
+                                           _BD7O	res	4
+                                           _BD7I	res	4
+                                           _BD8O	res	4
+                                           _BD8I	res	4
+                                           _BD9O	res	4
+                                           _BD9I	res	4
+                                           _BD10O	res	4
+                                           _BD10I	res	4
+                                           _BD11O	res	4
+                                           _BD11I	res	4
+                                           _BD12O	res	4
+                                           _BD12I	res	4
+                                           _BD13O	res	4
+                                           _BD13I	res	4
+                                           _BD14O	res	4
+                                           _BD14I	res	4
+                                           _BD15O	res	4
+                                           _BD15I	res	4
+                                           _EP0_OUT_buffer	res	8
+                                           _EP0_IN_buffer	res	8
+                                           _EP1_OUT_buffer	res	8
+                                           _EP1_IN_buffer	res	8
+                                           _EP2_OUT_buffer	res	8
+                                           _EP2_IN_buffer	res	8
+                                           _EP3_OUT_buffer	res	8
+                                           _EP3_IN_buffer	res	8
+                                           _EP4_OUT_buffer	res	8
+                                           _EP4_IN_buffer	res	8
+                                           _EP5_OUT_buffer	res	8
+                                           _EP5_IN_buffer	res	8
+                                           _EP6_OUT_buffer	res	8
+                                           _EP6_IN_buffer	res	8
+                                           _EP7_OUT_buffer	res	8
+                                           _EP7_IN_buffer	res	8
+                                           _EP8_OUT_buffer	res	8
+                                           _EP8_IN_buffer	res	8
+                                           _EP9_OUT_buffer	res	8
+                                           _EP9_IN_buffer	res	8
+                                           _EP10_OUT_buffer	res	8
+                                           _EP10_IN_buffer	res	8
+                                           _EP11_OUT_buffer	res	8
+                                           _EP11_IN_buffer	res	8
+                                           _EP12_OUT_buffer	res	8
+                                           _EP12_IN_buffer	res	8
+                                           _EP13_OUT_buffer	res	8
+                                           _EP13_IN_buffer	res	8
+                                           _EP14_OUT_buffer	res	8
+                                           _EP14_IN_buffer	res	8
+                                           _EP15_OUT_buffer	res	8
+                                           _EP15_IN_buffer	res	8
+                                           
+                                           ;--------------------------------------------------------
+                                           ; interrupt vector 
+                                           ;--------------------------------------------------------
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global & static initialisations
+                                           ;--------------------------------------------------------
+                                           ; I code from now on!
+                                           ; ; Starting pCode block
+                                           S_lab1__main	code
+                                           _main:
+                                           ;	.line	722; lab1.c	
+00123e   6a80     clrf	0x80, 0             	CLRF	_PORTA
+                                           ;	.line	723; lab1.c	
+001240   0e0f     movlw	0xf                	MOVLW	0x0f
+001242   6ec1     movwf	0xc1, 0            	MOVWF	_ADCON1
+                                           ;	.line	724; lab1.c	
+001244   6a92     clrf	0x92, 0             	CLRF	_TRISA
+                                           ;	.line	728; lab1.c	}
+001246   eca6     call	0xf4c, 0            	CALL	_InitUSB
+001248   f007
+                                           _00630_DS_:
+00124a   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+                                           ;	.line	729; lab1.c	
+00124c   5176     movf	0x76, 0, 0x1        	MOVF	_USB_USWSTAT, W, B
+00124e   0a03     xorlw	0x3                	XORLW	0x03
+001250   e102     bnz	0x1256               	BNZ	_00642_DS_
+001252   ef2f     goto	0x125e              	GOTO	_00634_DS_
+001254   f009
+                                           _00642_DS_:
+                                           ;	.line	730; lab1.c	while (1) {
+001256   eca4     call	0x948, 0            	CALL	_ServiceUSB
+001258   f004
+00125a   ef25     goto	0x124a              	GOTO	_00630_DS_
+00125c   f009
+                                           _00634_DS_:
+                                           ;	.line	734; lab1.c	}
+00125e   eca4     call	0x948, 0            	CALL	_ServiceUSB
+001260   f004
+001262   ef2f     goto	0x125e              	GOTO	_00634_DS_
+001264   f009
+001266   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lab1__SendDescriptorPacket	code
+                                           _SendDescriptorPacket:
+                                           ;	.line	703; lab1.c	if (USB_bytes_left<MAX_PACKET_SIZE) {
+000d7e   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+000d80   ffe5
+000d82   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+000d84   ffd9
+000d86   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+000d88   ffe5
+000d8a   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+000d8c   ffe5
+000d8e   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+000d90   ffe5
+000d92   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+000d94   ffe5
+000d96   c004     movff	0x4, 0xfe5         	MOVFF	r0x04, POSTDEC1
+000d98   ffe5
+000d9a   c005     movff	0x5, 0xfe5         	MOVFF	r0x05, POSTDEC1
+000d9c   ffe5
+                                           ;	.line	706; lab1.c	USB_bytes_left = 0x00;
+000d9e   0e08     movlw	0x8                	MOVLW	0x08
+000da0   0100     movlb	0                  	BANKSEL	_USB_bytes_left
+000da2   5d7c     subwf	0x7c, 0, 0x1       	SUBWF	_USB_bytes_left, W, B
+000da4   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+000da6   efde     goto	0xdbc               	GOTO	_00615_DS_
+000da8   f006
+                                           ;	.line	707; lab1.c	} else {
+000daa   0eff     movlw	0xff               	MOVLW	0xff
+000dac   0100     movlb	0                  	BANKSEL	_USB_dev_req
+000dae   6f78     movwf	0x78, 0x1          	MOVWF	_USB_dev_req, B
+                                           ;	.line	708; lab1.c	USB_packet_length = MAX_PACKET_SIZE;
+000db0   c07c     movff	0x7c, 0x7d         	MOVFF	_USB_bytes_left, _USB_packet_length
+000db2   f07d
+000db4   0100     movlb	0                  	BANKSEL	_USB_bytes_left
+                                           ;	.line	709; lab1.c	USB_bytes_left -= MAX_PACKET_SIZE;
+000db6   6b7c     clrf	0x7c, 0x1           	CLRF	_USB_bytes_left, B
+000db8   efe4     goto	0xdc8               	GOTO	_00625_DS_
+000dba   f006
+                                           _00615_DS_:
+                                           ;	.line	711; lab1.c	for (n = 0; n<USB_packet_length; n++) {
+000dbc   0e08     movlw	0x8                	MOVLW	0x08
+000dbe   0100     movlb	0                  	BANKSEL	_USB_packet_length
+000dc0   6f7d     movwf	0x7d, 0x1          	MOVWF	_USB_packet_length, B
+                                           ;	.line	712; lab1.c	BD0I.address[n] = *USB_desc_ptr++;
+000dc2   0ef8     movlw	0xf8               	MOVLW	0xf8
+000dc4   0100     movlb	0                  	BANKSEL	_USB_bytes_left
+000dc6   277c     addwf	0x7c, 0x1, 0x1     	ADDWF	_USB_bytes_left, F, B
+                                           _00625_DS_:
+                                           ;	.line	714; lab1.c	BD0I.bytecount = USB_packet_length;
+000dc8   6a00     clrf	0, 0                	CLRF	r0x00
+                                           _00617_DS_:
+000dca   0100     movlb	0                  	BANKSEL	_USB_packet_length
+000dcc   517d     movf	0x7d, 0, 0x1        	MOVF	_USB_packet_length, W, B
+000dce   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+000dd0   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+000dd2   ef15     goto	0xe2a               	GOTO	_00620_DS_
+000dd4   f007
+                                           ;	.line	715; lab1.c	BD0I.status = ((BD0I.status^0x40)&0x40)|0x88; // toggle the DATA01 bit, clear the PIDs bits, and set the UOWN and DTS bits
+000dd6   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000dd8   0104     movlb	0x4                	BANKSEL	(_BD0I + 2)
+000dda   2506     addwf	0x6, 0, 0x1        	ADDWF	(_BD0I + 2), W, B
+000ddc   6e01     movwf	0x1, 0             	MOVWF	r0x01
+000dde   6ae8     clrf	0xe8, 0             	CLRF	WREG
+000de0   0104     movlb	0x4                	BANKSEL	(_BD0I + 3)
+000de2   2107     addwfc	0x7, 0, 0x1       	ADDWFC	(_BD0I + 3), W, B
+000de4   6e02     movwf	0x2, 0             	MOVWF	r0x02
+000de6   c06c     movff	0x6c, 0x3          	MOVFF	_USB_desc_ptr, r0x03
+000de8   f003
+000dea   c06d     movff	0x6d, 0x4          	MOVFF	(_USB_desc_ptr + 1), r0x04
+000dec   f004
+000dee   c06e     movff	0x6e, 0x5          	MOVFF	(_USB_desc_ptr + 2), r0x05
+000df0   f005
+000df2   c003     movff	0x3, 0xff6         	MOVFF	r0x03, TBLPTRL
+000df4   fff6
+000df6   c004     movff	0x4, 0xff7         	MOVFF	r0x04, TBLPTRH
+000df8   fff7
+000dfa   c005     movff	0x5, 0xff8         	MOVFF	r0x05, TBLPTRU
+000dfc   fff8
+000dfe   0009     tblrd	*+                 	TBLRD*+	
+000e00   cff5     movff	0xff5, 0x3         	MOVFF	TABLAT, r0x03
+000e02   f003
+000e04   0100     movlb	0                  	BANKSEL	_USB_desc_ptr
+000e06   2b6c     incf	0x6c, 0x1, 0x1      	INCF	_USB_desc_ptr, F, B
+000e08   a0d8     btfss	0xd8, 0, 0         	BTFSS	STATUS, 0
+000e0a   d002     bra	0xe10                	BRA	_10630_DS_
+000e0c   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 1)
+000e0e   2b6d     incf	0x6d, 0x1, 0x1      	INCF	(_USB_desc_ptr + 1), F, B
+                                           _10630_DS_:
+000e10   a0d8     btfss	0xd8, 0, 0         	BTFSS	STATUS, 0
+000e12   d002     bra	0xe18                	BRA	_20631_DS_
+000e14   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 2)
+000e16   2b6e     incf	0x6e, 0x1, 0x1      	INCF	(_USB_desc_ptr + 2), F, B
+                                           _20631_DS_:
+000e18   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+000e1a   ffe9
+000e1c   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+000e1e   ffea
+000e20   c003     movff	0x3, 0xfef         	MOVFF	r0x03, INDF0
+000e22   ffef
+                                           ;	.line	714; lab1.c	BD0I.bytecount = USB_packet_length;
+000e24   2a00     incf	0, 0x1, 0           	INCF	r0x00, F
+000e26   efe5     goto	0xdca               	GOTO	_00617_DS_
+000e28   f006
+                                           _00620_DS_:
+000e2a   0100     movlb	0                  	BANKSEL	_USB_packet_length
+                                           ;	.line	717; lab1.c	
+000e2c   517d     movf	0x7d, 0, 0x1        	MOVF	_USB_packet_length, W, B
+000e2e   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+000e30   6f05     movwf	0x5, 0x1           	MOVWF	(_BD0I + 1), B
+                                           ;	.line	718; lab1.c	void main(void) {
+000e32   0e40     movlw	0x40               	MOVLW	0x40
+000e34   0104     movlb	0x4                	BANKSEL	_BD0I
+000e36   1904     xorwf	0x4, 0, 0x1        	XORWF	_BD0I, W, B
+000e38   6e00     movwf	0, 0               	MOVWF	r0x00
+000e3a   0e40     movlw	0x40               	MOVLW	0x40
+000e3c   1600     andwf	0, 0x1, 0          	ANDWF	r0x00, F
+000e3e   0e88     movlw	0x88               	MOVLW	0x88
+000e40   1200     iorwf	0, 0x1, 0          	IORWF	r0x00, F
+000e42   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000e44   0104     movlb	0x4                	BANKSEL	_BD0I
+000e46   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+000e48   cfe4     movff	0xfe4, 0x5         	MOVFF	PREINC1, r0x05
+000e4a   f005
+000e4c   cfe4     movff	0xfe4, 0x4         	MOVFF	PREINC1, r0x04
+000e4e   f004
+000e50   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+000e52   f003
+000e54   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+000e56   f002
+000e58   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+000e5a   f001
+000e5c   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+000e5e   f000
+000e60   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+000e62   ffd9
+000e64   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lab1__ProcessOutToken	code
+                                           _ProcessOutToken:
+                                           ;	.line	657; lab1.c	BD0O.bytecount = MAX_PACKET_SIZE;
+000e66   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+000e68   ffe5
+000e6a   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+000e6c   ffd9
+000e6e   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+000e70   ffe5
+                                           ;	.line	658; lab1.c	BD0O.status = 0x88;
+000e72   0e78     movlw	0x78               	MOVLW	0x78
+000e74   0100     movlb	0                  	BANKSEL	_USB_USTAT
+000e76   1579     andwf	0x79, 0, 0x1       	ANDWF	_USB_USTAT, W, B
+000e78   6e00     movwf	0, 0               	MOVWF	r0x00
+000e7a   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000e7c   e102     bnz	0xe82                	BNZ	_00582_DS_
+000e7e   ef87     goto	0xf0e               	GOTO	_00546_DS_
+000e80   f007
+                                           _00582_DS_:
+000e82   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000e84   0a08     xorlw	0x8                	XORLW	0x08
+000e86   e102     bnz	0xe8c                	BNZ	_00584_DS_
+000e88   ef94     goto	0xf28               	GOTO	_00547_DS_
+000e8a   f007
+                                           _00584_DS_:
+000e8c   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000e8e   0a10     xorlw	0x10               	XORLW	0x10
+000e90   e102     bnz	0xe96                	BNZ	_00586_DS_
+000e92   efa1     goto	0xf42               	GOTO	_00563_DS_
+000e94   f007
+                                           _00586_DS_:
+000e96   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000e98   0a18     xorlw	0x18               	XORLW	0x18
+000e9a   e102     bnz	0xea0                	BNZ	_00588_DS_
+000e9c   efa1     goto	0xf42               	GOTO	_00563_DS_
+000e9e   f007
+                                           _00588_DS_:
+000ea0   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000ea2   0a20     xorlw	0x20               	XORLW	0x20
+000ea4   e102     bnz	0xeaa                	BNZ	_00590_DS_
+000ea6   efa1     goto	0xf42               	GOTO	_00563_DS_
+000ea8   f007
+                                           _00590_DS_:
+000eaa   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000eac   0a28     xorlw	0x28               	XORLW	0x28
+000eae   e102     bnz	0xeb4                	BNZ	_00592_DS_
+000eb0   efa1     goto	0xf42               	GOTO	_00563_DS_
+000eb2   f007
+                                           _00592_DS_:
+000eb4   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000eb6   0a30     xorlw	0x30               	XORLW	0x30
+000eb8   e102     bnz	0xebe                	BNZ	_00594_DS_
+000eba   efa1     goto	0xf42               	GOTO	_00563_DS_
+000ebc   f007
+                                           _00594_DS_:
+000ebe   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000ec0   0a38     xorlw	0x38               	XORLW	0x38
+000ec2   e102     bnz	0xec8                	BNZ	_00596_DS_
+000ec4   efa1     goto	0xf42               	GOTO	_00563_DS_
+000ec6   f007
+                                           _00596_DS_:
+000ec8   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000eca   0a40     xorlw	0x40               	XORLW	0x40
+000ecc   e102     bnz	0xed2                	BNZ	_00598_DS_
+000ece   efa1     goto	0xf42               	GOTO	_00563_DS_
+000ed0   f007
+                                           _00598_DS_:
+000ed2   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000ed4   0a48     xorlw	0x48               	XORLW	0x48
+000ed6   e102     bnz	0xedc                	BNZ	_00600_DS_
+000ed8   efa1     goto	0xf42               	GOTO	_00563_DS_
+000eda   f007
+                                           _00600_DS_:
+000edc   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000ede   0a50     xorlw	0x50               	XORLW	0x50
+000ee0   e102     bnz	0xee6                	BNZ	_00602_DS_
+000ee2   efa1     goto	0xf42               	GOTO	_00563_DS_
+000ee4   f007
+                                           _00602_DS_:
+000ee6   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000ee8   0a58     xorlw	0x58               	XORLW	0x58
+000eea   e102     bnz	0xef0                	BNZ	_00604_DS_
+000eec   efa1     goto	0xf42               	GOTO	_00563_DS_
+000eee   f007
+                                           _00604_DS_:
+000ef0   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000ef2   0a60     xorlw	0x60               	XORLW	0x60
+000ef4   e102     bnz	0xefa                	BNZ	_00606_DS_
+000ef6   efa1     goto	0xf42               	GOTO	_00563_DS_
+000ef8   f007
+                                           _00606_DS_:
+000efa   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000efc   0a68     xorlw	0x68               	XORLW	0x68
+000efe   e102     bnz	0xf04                	BNZ	_00608_DS_
+000f00   efa1     goto	0xf42               	GOTO	_00563_DS_
+000f02   f007
+                                           _00608_DS_:
+000f04   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000f06   0a70     xorlw	0x70               	XORLW	0x70
+000f08   e100     bnz	0xf0a                	BNZ	_00610_DS_
+                                           _00610_DS_:
+000f0a   efa1     goto	0xf42               	GOTO	_00563_DS_
+000f0c   f007
+                                           _00546_DS_:
+                                           ;	.line	660; lab1.c	BD0I.status = 0xC8;		// send packet as DATA1, set UOWN bit
+000f0e   0e08     movlw	0x8                	MOVLW	0x08
+000f10   0104     movlb	0x4                	BANKSEL	(_BD0O + 1)
+000f12   6f01     movwf	0x1, 0x1           	MOVWF	(_BD0O + 1), B
+                                           ;	.line	661; lab1.c	break;
+000f14   0e88     movlw	0x88               	MOVLW	0x88
+000f16   0104     movlb	0x4                	BANKSEL	_BD0O
+000f18   6f00     movwf	0, 0x1             	MOVWF	_BD0O, B
+000f1a   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+                                           ;	.line	662; lab1.c	case EP1:
+000f1c   6b05     clrf	0x5, 0x1            	CLRF	(_BD0I + 1), B
+                                           ;	.line	663; lab1.c	PORTB = BD1O.address[0];
+000f1e   0ec8     movlw	0xc8               	MOVLW	0xc8
+000f20   0104     movlb	0x4                	BANKSEL	_BD0I
+000f22   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	664; lab1.c	BD1O.bytecount = MAX_PACKET_SIZE;
+000f24   efa1     goto	0xf42               	GOTO	_00563_DS_
+000f26   f007
+                                           _00547_DS_:
+                                           ;	.line	666; lab1.c	BD1I.bytecount = 0x00;		// set EP0 IN byte count to 0
+000f28   c40a     movff	0x40a, 0xf81       	MOVFF	(_BD1O + 2), _PORTB
+000f2a   ff81
+                                           ;	.line	667; lab1.c	BD1I.status = 0xC8;	
+000f2c   0e08     movlw	0x8                	MOVLW	0x08
+000f2e   0104     movlb	0x4                	BANKSEL	(_BD1O + 1)
+000f30   6f09     movwf	0x9, 0x1           	MOVWF	(_BD1O + 1), B
+                                           ;	.line	668; lab1.c	break;
+000f32   0e88     movlw	0x88               	MOVLW	0x88
+000f34   0104     movlb	0x4                	BANKSEL	_BD1O
+000f36   6f08     movwf	0x8, 0x1           	MOVWF	_BD1O, B
+000f38   0104     movlb	0x4                	BANKSEL	(_BD1I + 1)
+                                           ;	.line	669; lab1.c	case EP2:
+000f3a   6b0d     clrf	0xd, 0x1            	CLRF	(_BD1I + 1), B
+                                           ;	.line	670; lab1.c	break;
+000f3c   0ec8     movlw	0xc8               	MOVLW	0xc8
+000f3e   0104     movlb	0x4                	BANKSEL	_BD1I
+000f40   6f0c     movwf	0xc, 0x1           	MOVWF	_BD1I, B
+                                           _00563_DS_:
+                                           ;	.line	700; lab1.c	void SendDescriptorPacket(void) {
+000f42   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+000f44   f000
+000f46   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+000f48   ffd9
+000f4a   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lab1__ProcessInToken	code
+                                           _ProcessInToken:
+                                           ;	.line	603; lab1.c	switch (USB_dev_req) {
+000c5a   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+000c5c   ffe5
+000c5e   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+000c60   ffd9
+000c62   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+000c64   ffe5
+000c66   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+000c68   ffe5
+                                           ;	.line	604; lab1.c	case SET_ADDRESS:
+000c6a   0e78     movlw	0x78               	MOVLW	0x78
+000c6c   0100     movlb	0                  	BANKSEL	_USB_USTAT
+000c6e   1579     andwf	0x79, 0, 0x1       	ANDWF	_USB_USTAT, W, B
+000c70   6e00     movwf	0, 0               	MOVWF	r0x00
+000c72   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000c74   e102     bnz	0xc7a                	BNZ	_00507_DS_
+000c76   ef83     goto	0xd06               	GOTO	_00462_DS_
+000c78   f006
+                                           _00507_DS_:
+000c7a   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000c7c   0a08     xorlw	0x8                	XORLW	0x08
+000c7e   e102     bnz	0xc84                	BNZ	_00509_DS_
+000c80   efa8     goto	0xd50               	GOTO	_00469_DS_
+000c82   f006
+                                           _00509_DS_:
+000c84   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000c86   0a10     xorlw	0x10               	XORLW	0x10
+000c88   e102     bnz	0xc8e                	BNZ	_00511_DS_
+000c8a   efb8     goto	0xd70               	GOTO	_00485_DS_
+000c8c   f006
+                                           _00511_DS_:
+000c8e   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000c90   0a18     xorlw	0x18               	XORLW	0x18
+000c92   e102     bnz	0xc98                	BNZ	_00513_DS_
+000c94   efb8     goto	0xd70               	GOTO	_00485_DS_
+000c96   f006
+                                           _00513_DS_:
+000c98   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000c9a   0a20     xorlw	0x20               	XORLW	0x20
+000c9c   e102     bnz	0xca2                	BNZ	_00515_DS_
+000c9e   efb8     goto	0xd70               	GOTO	_00485_DS_
+000ca0   f006
+                                           _00515_DS_:
+000ca2   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000ca4   0a28     xorlw	0x28               	XORLW	0x28
+000ca6   e102     bnz	0xcac                	BNZ	_00517_DS_
+000ca8   efb8     goto	0xd70               	GOTO	_00485_DS_
+000caa   f006
+                                           _00517_DS_:
+000cac   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000cae   0a30     xorlw	0x30               	XORLW	0x30
+000cb0   e102     bnz	0xcb6                	BNZ	_00519_DS_
+000cb2   efb8     goto	0xd70               	GOTO	_00485_DS_
+000cb4   f006
+                                           _00519_DS_:
+000cb6   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000cb8   0a38     xorlw	0x38               	XORLW	0x38
+000cba   e102     bnz	0xcc0                	BNZ	_00521_DS_
+000cbc   efb8     goto	0xd70               	GOTO	_00485_DS_
+000cbe   f006
+                                           _00521_DS_:
+000cc0   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000cc2   0a40     xorlw	0x40               	XORLW	0x40
+000cc4   e102     bnz	0xcca                	BNZ	_00523_DS_
+000cc6   efb8     goto	0xd70               	GOTO	_00485_DS_
+000cc8   f006
+                                           _00523_DS_:
+000cca   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000ccc   0a48     xorlw	0x48               	XORLW	0x48
+000cce   e102     bnz	0xcd4                	BNZ	_00525_DS_
+000cd0   efb8     goto	0xd70               	GOTO	_00485_DS_
+000cd2   f006
+                                           _00525_DS_:
+000cd4   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000cd6   0a50     xorlw	0x50               	XORLW	0x50
+000cd8   e102     bnz	0xcde                	BNZ	_00527_DS_
+000cda   efb8     goto	0xd70               	GOTO	_00485_DS_
+000cdc   f006
+                                           _00527_DS_:
+000cde   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000ce0   0a58     xorlw	0x58               	XORLW	0x58
+000ce2   e102     bnz	0xce8                	BNZ	_00529_DS_
+000ce4   efb8     goto	0xd70               	GOTO	_00485_DS_
+000ce6   f006
+                                           _00529_DS_:
+000ce8   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000cea   0a60     xorlw	0x60               	XORLW	0x60
+000cec   e102     bnz	0xcf2                	BNZ	_00531_DS_
+000cee   efb8     goto	0xd70               	GOTO	_00485_DS_
+000cf0   f006
+                                           _00531_DS_:
+000cf2   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000cf4   0a68     xorlw	0x68               	XORLW	0x68
+000cf6   e102     bnz	0xcfc                	BNZ	_00533_DS_
+000cf8   efb8     goto	0xd70               	GOTO	_00485_DS_
+000cfa   f006
+                                           _00533_DS_:
+000cfc   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000cfe   0a70     xorlw	0x70               	XORLW	0x70
+000d00   e100     bnz	0xd02                	BNZ	_00535_DS_
+                                           _00535_DS_:
+000d02   efb8     goto	0xd70               	GOTO	_00485_DS_
+000d04   f006
+                                           _00462_DS_:
+000d06   0100     movlb	0                  	BANKSEL	_USB_dev_req
+                                           ;	.line	606; lab1.c	case 0:
+000d08   5178     movf	0x78, 0, 0x1        	MOVF	_USB_dev_req, W, B
+000d0a   0a05     xorlw	0x5                	XORLW	0x05
+000d0c   e102     bnz	0xd12                	BNZ	_00537_DS_
+000d0e   ef91     goto	0xd22               	GOTO	_00463_DS_
+000d10   f006
+                                           _00537_DS_:
+000d12   0100     movlb	0                  	BANKSEL	_USB_dev_req
+000d14   5178     movf	0x78, 0, 0x1        	MOVF	_USB_dev_req, W, B
+000d16   0a06     xorlw	0x6                	XORLW	0x06
+000d18   e102     bnz	0xd1e                	BNZ	_00539_DS_
+000d1a   efa4     goto	0xd48               	GOTO	_00467_DS_
+000d1c   f006
+                                           _00539_DS_:
+000d1e   efb8     goto	0xd70               	GOTO	_00485_DS_
+000d20   f006
+                                           _00463_DS_:
+                                           ;	.line	608; lab1.c	break;
+000d22   c07b     movff	0x7b, 0xf6e        	MOVFF	_USB_address_pending, _UADDR
+000d24   ff6e
+000d26   0100     movlb	0                  	BANKSEL	_USB_address_pending
+000d28   517b     movf	0x7b, 0, 0x1        	MOVF	_USB_address_pending, W, B
+000d2a   e102     bnz	0xd30                	BNZ	_00540_DS_
+000d2c   ef9a     goto	0xd34               	GOTO	_00541_DS_
+000d2e   f006
+                                           _00540_DS_:
+000d30   ef9f     goto	0xd3e               	GOTO	_00465_DS_
+000d32   f006
+                                           _00541_DS_:
+                                           ;	.line	610; lab1.c	USB_USWSTAT = ADDRESS_STATE;
+000d34   0e01     movlw	0x1                	MOVLW	0x01
+000d36   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+000d38   6f76     movwf	0x76, 0x1          	MOVWF	_USB_USWSTAT, B
+                                           ;	.line	611; lab1.c	}
+000d3a   efb8     goto	0xd70               	GOTO	_00485_DS_
+000d3c   f006
+                                           _00465_DS_:
+                                           ;	.line	613; lab1.c	case GET_DESCRIPTOR:
+000d3e   0e02     movlw	0x2                	MOVLW	0x02
+000d40   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+000d42   6f76     movwf	0x76, 0x1          	MOVWF	_USB_USWSTAT, B
+                                           ;	.line	615; lab1.c	break;
+000d44   efb8     goto	0xd70               	GOTO	_00485_DS_
+000d46   f006
+                                           _00467_DS_:
+                                           ;	.line	617; lab1.c	break;
+000d48   ecbf     call	0xd7e, 0            	CALL	_SendDescriptorPacket
+000d4a   f006
+                                           ;	.line	620; lab1.c	BD1I.bytecount = 0x01;		// set EP0 IN byte count to 0
+000d4c   efb8     goto	0xd70               	GOTO	_00485_DS_
+000d4e   f006
+                                           _00469_DS_:
+                                           ;	.line	622; lab1.c	break;
+000d50   c40e     movff	0x40e, 0           	MOVFF	(_BD1I + 2), r0x00
+000d52   f000
+000d54   c40f     movff	0x40f, 0x1         	MOVFF	(_BD1I + 3), r0x01
+000d56   f001
+000d58   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+000d5a   ffe9
+000d5c   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+000d5e   ffea
+000d60   0e00     movlw	0                  	MOVLW	0x00
+000d62   6eef     movwf	0xef, 0            	MOVWF	INDF0
+                                           ;	.line	623; lab1.c	case EP2:
+000d64   0e01     movlw	0x1                	MOVLW	0x01
+000d66   0104     movlb	0x4                	BANKSEL	(_BD1I + 1)
+000d68   6f0d     movwf	0xd, 0x1           	MOVWF	(_BD1I + 1), B
+                                           ;	.line	624; lab1.c	break;
+000d6a   0ec8     movlw	0xc8               	MOVLW	0xc8
+000d6c   0104     movlb	0x4                	BANKSEL	_BD1I
+000d6e   6f0c     movwf	0xc, 0x1           	MOVWF	_BD1I, B
+                                           _00485_DS_:
+                                           ;	.line	654; lab1.c	void ProcessOutToken(void) {
+000d70   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+000d72   f001
+000d74   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+000d76   f000
+000d78   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+000d7a   ffd9
+000d7c   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lab1__VendorRequests	code
+                                           _VendorRequests:
+                                           ;	.line	586; lab1.c	PORTAbits.RA0 = 1;		// set RA0 high
+0011e8   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+0011ea   ffe5
+0011ec   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+0011ee   ffd9
+0011f0   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+0011f2   ffe5
+                                           ;	.line	587; lab1.c	BD0I.bytecount = 0x00;		// set EP0 IN byte count to 0
+0011f4   c061     movff	0x61, 0            	MOVFF	(_USB_buffer_data + 1), r0x00
+0011f6   f000
+0011f8   5000     movf	0, 0, 0             	MOVF	r0x00, W
+0011fa   0a01     xorlw	0x1                	XORLW	0x01
+0011fc   e102     bnz	0x1202               	BNZ	_00456_DS_
+0011fe   ef08     goto	0x1210              	GOTO	_00447_DS_
+001200   f009
+                                           _00456_DS_:
+001202   5000     movf	0, 0, 0             	MOVF	r0x00, W
+001204   0a02     xorlw	0x2                	XORLW	0x02
+001206   e102     bnz	0x120c               	BNZ	_00458_DS_
+001208   ef10     goto	0x1220              	GOTO	_00448_DS_
+00120a   f009
+                                           _00458_DS_:
+00120c   ef18     goto	0x1230              	GOTO	_00449_DS_
+00120e   f009
+                                           _00447_DS_:
+                                           ;	.line	589; lab1.c	break;
+001210   8080     bsf	0x80, 0, 0           	BSF	_PORTAbits, 0
+001212   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+                                           ;	.line	590; lab1.c	case CLR_RA0:
+001214   6b05     clrf	0x5, 0x1            	CLRF	(_BD0I + 1), B
+                                           ;	.line	591; lab1.c	PORTAbits.RA0 = 0;		// set RA0 low
+001216   0ec8     movlw	0xc8               	MOVLW	0xc8
+001218   0104     movlb	0x4                	BANKSEL	_BD0I
+00121a   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	592; lab1.c	BD0I.bytecount = 0x00;		// set EP0 IN byte count to 0
+00121c   ef1a     goto	0x1234              	GOTO	_00451_DS_
+00121e   f009
+                                           _00448_DS_:
+                                           ;	.line	594; lab1.c	break;
+001220   9080     bcf	0x80, 0, 0           	BCF	_PORTAbits, 0
+001222   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+                                           ;	.line	595; lab1.c	default:
+001224   6b05     clrf	0x5, 0x1            	CLRF	(_BD0I + 1), B
+                                           ;	.line	596; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+001226   0ec8     movlw	0xc8               	MOVLW	0xc8
+001228   0104     movlb	0x4                	BANKSEL	_BD0I
+00122a   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	597; lab1.c	}
+00122c   ef1a     goto	0x1234              	GOTO	_00451_DS_
+00122e   f009
+                                           _00449_DS_:
+001230   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	599; lab1.c	
+001232   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           _00451_DS_:
+                                           ;	.line	600; lab1.c	void ProcessInToken(void) {
+001234   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+001236   f000
+001238   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+00123a   ffd9
+00123c   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lab1__ClassRequests	code
+                                           _ClassRequests:
+                                           ;	.line	579; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+0012b6   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+0012b8   ffe5
+0012ba   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+0012bc   ffd9
+0012be   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	582; lab1.c	
+0012c0   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	583; lab1.c	void VendorRequests(void) {
+0012c2   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+0012c4   ffd9
+0012c6   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lab1__StandardRequests	code
+                                           _StandardRequests:
+                                           ;	.line	318; lab1.c	BUFDESC *buf_desc_ptr;
+00002a   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+00002c   ffe5
+00002e   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+000030   ffd9
+000032   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+000034   ffe5
+000036   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+000038   ffe5
+00003a   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+00003c   ffe5
+00003e   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+000040   ffe5
+000042   c004     movff	0x4, 0xfe5         	MOVFF	r0x04, POSTDEC1
+000044   ffe5
+000046   c005     movff	0x5, 0xfe5         	MOVFF	r0x05, POSTDEC1
+000048   ffe5
+00004a   c006     movff	0x6, 0xfe5         	MOVFF	r0x06, POSTDEC1
+00004c   ffe5
+00004e   c007     movff	0x7, 0xfe5         	MOVFF	r0x07, POSTDEC1
+000050   ffe5
+000052   c008     movff	0x8, 0xfe5         	MOVFF	r0x08, POSTDEC1
+000054   ffe5
+000056   c009     movff	0x9, 0xfe5         	MOVFF	r0x09, POSTDEC1
+000058   ffe5
+                                           ;	.line	323; lab1.c	case RECIPIENT_DEVICE:
+00005a   c061     movff	0x61, 0            	MOVFF	(_USB_buffer_data + 1), r0x00
+00005c   f000
+00005e   0e0d     movlw	0xd                	MOVLW	0x0d
+000060   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+000062   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+000064   ef8b     goto	0x916               	GOTO	_00314_DS_
+000066   f004
+000068   c00a     movff	0xa, 0xfe5         	MOVFF	r0x0a, POSTDEC1
+00006a   ffe5
+00006c   c00b     movff	0xb, 0xfe5         	MOVFF	r0x0b, POSTDEC1
+00006e   ffe5
+000070   6a0b     clrf	0xb, 0              	CLRF	r0x0b
+000072   3400     rlcf	0, 0, 0             	RLCF	r0x00, W
+000074   360b     rlcf	0xb, 0x1, 0         	RLCF	r0x0b, F
+000076   34e8     rlcf	0xe8, 0, 0          	RLCF	WREG, W
+000078   360b     rlcf	0xb, 0x1, 0         	RLCF	r0x0b, F
+00007a   0bfc     andlw	0xfc               	ANDLW	0xfc
+00007c   6e0a     movwf	0xa, 0             	MOVWF	r0x0a
+00007e   0e00     movlw	0                  	MOVLW	UPPER(_00378_DS_)
+000080   6efb     movwf	0xfb, 0            	MOVWF	PCLATU
+000082   0e00     movlw	0                  	MOVLW	HIGH(_00378_DS_)
+000084   6efa     movwf	0xfa, 0            	MOVWF	PCLATH
+000086   0e9e     movlw	0x9e               	MOVLW	LOW(_00378_DS_)
+000088   260a     addwf	0xa, 0x1, 0        	ADDWF	r0x0a, F
+00008a   500b     movf	0xb, 0, 0           	MOVF	r0x0b, W
+00008c   22fa     addwfc	0xfa, 0x1, 0      	ADDWFC	PCLATH, F
+00008e   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+000090   2afb     incf	0xfb, 0x1, 0        	INCF	PCLATU, F
+000092   500a     movf	0xa, 0, 0           	MOVF	r0x0a, W
+000094   cfe4     movff	0xfe4, 0xb         	MOVFF	PREINC1, r0x0b
+000096   f00b
+000098   cfe4     movff	0xfe4, 0xa         	MOVFF	PREINC1, r0x0a
+00009a   f00a
+00009c   6ef9     movwf	0xf9, 0            	MOVWF	PCL
+                                           _00378_DS_:
+00009e   ef69     goto	0xd2                	GOTO	_00202_DS_
+0000a0   f000
+0000a2   efca     goto	0x394               	GOTO	_00225_DS_
+0000a4   f001
+0000a6   ef8b     goto	0x916               	GOTO	_00314_DS_
+0000a8   f004
+0000aa   efca     goto	0x394               	GOTO	_00225_DS_
+0000ac   f001
+0000ae   ef8b     goto	0x916               	GOTO	_00314_DS_
+0000b0   f004
+0000b2   efd0     goto	0x5a0               	GOTO	_00256_DS_
+0000b4   f002
+0000b6   efe7     goto	0x5ce               	GOTO	_00260_DS_
+0000b8   f002
+0000ba   ef8b     goto	0x916               	GOTO	_00314_DS_
+0000bc   f004
+0000be   eff8     goto	0x7f0               	GOTO	_00287_DS_
+0000c0   f003
+0000c2   ef0a     goto	0x814               	GOTO	_00288_DS_
+0000c4   f004
+0000c6   ef3b     goto	0x876               	GOTO	_00295_DS_
+0000c8   f004
+0000ca   ef63     goto	0x8c6               	GOTO	_00302_DS_
+0000cc   f004
+0000ce   ef8b     goto	0x916               	GOTO	_00314_DS_
+0000d0   f004
+                                           _00202_DS_:
+                                           ;	.line	325; lab1.c	BD0I.address[1] = 0x00;
+0000d2   0e1f     movlw	0x1f               	MOVLW	0x1f
+0000d4   0100     movlb	0                  	BANKSEL	_USB_buffer_data
+0000d6   1560     andwf	0x60, 0, 0x1       	ANDWF	_USB_buffer_data, W, B
+0000d8   6e01     movwf	0x1, 0             	MOVWF	r0x01
+0000da   0e03     movlw	0x3                	MOVLW	0x03
+0000dc   5c01     subwf	0x1, 0, 0          	SUBWF	r0x01, W
+0000de   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+0000e0   efc6     goto	0x38c               	GOTO	_00222_DS_
+0000e2   f001
+0000e4   c00a     movff	0xa, 0xfe5         	MOVFF	r0x0a, POSTDEC1
+0000e6   ffe5
+0000e8   c00b     movff	0xb, 0xfe5         	MOVFF	r0x0b, POSTDEC1
+0000ea   ffe5
+0000ec   6a0b     clrf	0xb, 0              	CLRF	r0x0b
+0000ee   3401     rlcf	0x1, 0, 0           	RLCF	r0x01, W
+0000f0   360b     rlcf	0xb, 0x1, 0         	RLCF	r0x0b, F
+0000f2   34e8     rlcf	0xe8, 0, 0          	RLCF	WREG, W
+0000f4   360b     rlcf	0xb, 0x1, 0         	RLCF	r0x0b, F
+0000f6   0bfc     andlw	0xfc               	ANDLW	0xfc
+0000f8   6e0a     movwf	0xa, 0             	MOVWF	r0x0a
+0000fa   0e00     movlw	0                  	MOVLW	UPPER(_00381_DS_)
+0000fc   6efb     movwf	0xfb, 0            	MOVWF	PCLATU
+0000fe   0e01     movlw	0x1                	MOVLW	HIGH(_00381_DS_)
+000100   6efa     movwf	0xfa, 0            	MOVWF	PCLATH
+000102   0e1a     movlw	0x1a               	MOVLW	LOW(_00381_DS_)
+000104   260a     addwf	0xa, 0x1, 0        	ADDWF	r0x0a, F
+000106   500b     movf	0xb, 0, 0           	MOVF	r0x0b, W
+000108   22fa     addwfc	0xfa, 0x1, 0      	ADDWFC	PCLATH, F
+00010a   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+00010c   2afb     incf	0xfb, 0x1, 0        	INCF	PCLATU, F
+00010e   500a     movf	0xa, 0, 0           	MOVF	r0x0a, W
+000110   cfe4     movff	0xfe4, 0xb         	MOVFF	PREINC1, r0x0b
+000112   f00b
+000114   cfe4     movff	0xfe4, 0xa         	MOVFF	PREINC1, r0x0a
+000116   f00a
+000118   6ef9     movwf	0xf9, 0            	MOVWF	PCL
+                                           _00381_DS_:
+00011a   ef93     goto	0x126               	GOTO	_00203_DS_
+00011c   f000
+00011e   efb3     goto	0x166               	GOTO	_00204_DS_
+000120   f000
+000122   efef     goto	0x1de               	GOTO	_00211_DS_
+000124   f000
+                                           _00203_DS_:
+                                           ;	.line	327; lab1.c	BD0I.status = 0xC8;		// send packet as DATA1, set UOWN bit
+000126   c406     movff	0x406, 0x1         	MOVFF	(_BD0I + 2), r0x01
+000128   f001
+00012a   c407     movff	0x407, 0x2         	MOVFF	(_BD0I + 3), r0x02
+00012c   f002
+00012e   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+000130   ffe9
+000132   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+000134   ffea
+000136   c077     movff	0x77, 0xfef        	MOVFF	_USB_device_status, INDF0
+000138   ffef
+                                           ;	.line	328; lab1.c	break;
+00013a   0e01     movlw	0x1                	MOVLW	0x01
+00013c   0104     movlb	0x4                	BANKSEL	(_BD0I + 2)
+00013e   2506     addwf	0x6, 0, 0x1        	ADDWF	(_BD0I + 2), W, B
+000140   6e01     movwf	0x1, 0             	MOVWF	r0x01
+000142   0e00     movlw	0                  	MOVLW	0x00
+000144   0104     movlb	0x4                	BANKSEL	(_BD0I + 3)
+000146   2107     addwfc	0x7, 0, 0x1       	ADDWFC	(_BD0I + 3), W, B
+000148   6e02     movwf	0x2, 0             	MOVWF	r0x02
+00014a   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+00014c   ffe9
+00014e   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+000150   ffea
+000152   0e00     movlw	0                  	MOVLW	0x00
+000154   6eef     movwf	0xef, 0            	MOVWF	INDF0
+                                           ;	.line	329; lab1.c	case RECIPIENT_INTERFACE:
+000156   0e02     movlw	0x2                	MOVLW	0x02
+000158   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+00015a   6f05     movwf	0x5, 0x1           	MOVWF	(_BD0I + 1), B
+                                           ;	.line	330; lab1.c	switch (USB_USWSTAT) {
+00015c   0ec8     movlw	0xc8               	MOVLW	0xc8
+00015e   0104     movlb	0x4                	BANKSEL	_BD0I
+000160   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	331; lab1.c	case ADDRESS_STATE:
+000162   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000164   f004
+                                           _00204_DS_:
+000166   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+                                           ;	.line	333; lab1.c	break;
+000168   5176     movf	0x76, 0, 0x1        	MOVF	_USB_USWSTAT, W, B
+00016a   0a02     xorlw	0x2                	XORLW	0x02
+00016c   e102     bnz	0x172                	BNZ	_00383_DS_
+00016e   efc1     goto	0x182               	GOTO	_00205_DS_
+000170   f000
+                                           _00383_DS_:
+000172   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+000174   5176     movf	0x76, 0, 0x1        	MOVF	_USB_USWSTAT, W, B
+000176   0a03     xorlw	0x3                	XORLW	0x03
+000178   e102     bnz	0x17e                	BNZ	_00385_DS_
+00017a   efc5     goto	0x18a               	GOTO	_00206_DS_
+00017c   f000
+                                           _00385_DS_:
+00017e   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000180   f004
+                                           _00205_DS_:
+000182   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	335; lab1.c	if (USB_buffer_data[wIndex]<NUM_INTERFACES) {
+000184   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	336; lab1.c	BD0I.address[0] = 0x00;
+000186   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000188   f004
+                                           _00206_DS_:
+                                           ;	.line	338; lab1.c	BD0I.bytecount = 0x02;
+00018a   0e01     movlw	0x1                	MOVLW	0x01
+00018c   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 4)
+00018e   5d64     subwf	0x64, 0, 0x1       	SUBWF	(_USB_buffer_data + 4), W, B
+000190   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+000192   efeb     goto	0x1d6               	GOTO	_00208_DS_
+000194   f000
+                                           ;	.line	339; lab1.c	BD0I.status = 0xC8;		// send packet as DATA1, set UOWN bit
+000196   c406     movff	0x406, 0x1         	MOVFF	(_BD0I + 2), r0x01
+000198   f001
+00019a   c407     movff	0x407, 0x2         	MOVFF	(_BD0I + 3), r0x02
+00019c   f002
+00019e   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+0001a0   ffe9
+0001a2   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+0001a4   ffea
+0001a6   0e00     movlw	0                  	MOVLW	0x00
+0001a8   6eef     movwf	0xef, 0            	MOVWF	INDF0
+                                           ;	.line	340; lab1.c	} else {
+0001aa   0e01     movlw	0x1                	MOVLW	0x01
+0001ac   0104     movlb	0x4                	BANKSEL	(_BD0I + 2)
+0001ae   2506     addwf	0x6, 0, 0x1        	ADDWF	(_BD0I + 2), W, B
+0001b0   6e01     movwf	0x1, 0             	MOVWF	r0x01
+0001b2   0e00     movlw	0                  	MOVLW	0x00
+0001b4   0104     movlb	0x4                	BANKSEL	(_BD0I + 3)
+0001b6   2107     addwfc	0x7, 0, 0x1       	ADDWFC	(_BD0I + 3), W, B
+0001b8   6e02     movwf	0x2, 0             	MOVWF	r0x02
+0001ba   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+0001bc   ffe9
+0001be   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+0001c0   ffea
+0001c2   0e00     movlw	0                  	MOVLW	0x00
+0001c4   6eef     movwf	0xef, 0            	MOVWF	INDF0
+                                           ;	.line	341; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+0001c6   0e02     movlw	0x2                	MOVLW	0x02
+0001c8   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+0001ca   6f05     movwf	0x5, 0x1           	MOVWF	(_BD0I + 1), B
+                                           ;	.line	342; lab1.c	}
+0001cc   0ec8     movlw	0xc8               	MOVLW	0xc8
+0001ce   0104     movlb	0x4                	BANKSEL	_BD0I
+0001d0   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+0001d2   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0001d4   f004
+                                           _00208_DS_:
+0001d6   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	344; lab1.c	break;
+0001d8   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	347; lab1.c	case ADDRESS_STATE:
+0001da   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0001dc   f004
+                                           _00211_DS_:
+0001de   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+                                           ;	.line	349; lab1.c	BD0I.address[0] = (((USB_buffer_data[wIndex]&0x80) ? BD0I.status:BD0O.status)&0x04)>>2;	// return the BSTALL bit of EP0 IN or OUT, whichever was requested
+0001e0   5176     movf	0x76, 0, 0x1        	MOVF	_USB_USWSTAT, W, B
+0001e2   0a02     xorlw	0x2                	XORLW	0x02
+0001e4   e102     bnz	0x1ea                	BNZ	_00388_DS_
+0001e6   effd     goto	0x1fa               	GOTO	_00212_DS_
+0001e8   f000
+                                           _00388_DS_:
+0001ea   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+0001ec   5176     movf	0x76, 0, 0x1        	MOVF	_USB_USWSTAT, W, B
+0001ee   0a03     xorlw	0x3                	XORLW	0x03
+0001f0   e102     bnz	0x1f6                	BNZ	_00390_DS_
+0001f2   ef37     goto	0x26e               	GOTO	_00216_DS_
+0001f4   f001
+                                           _00390_DS_:
+0001f6   efc2     goto	0x384               	GOTO	_00220_DS_
+0001f8   f001
+                                           _00212_DS_:
+                                           ;	.line	351; lab1.c	BD0I.bytecount = 0x02;
+0001fa   c064     movff	0x64, 0x1          	MOVFF	(_USB_buffer_data + 4), r0x01
+0001fc   f001
+0001fe   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+000200   0b0f     andlw	0xf                	ANDLW	0x0f
+000202   e001     bz	0x206                 	BZ	_00391_DS_
+000204   d030     bra	0x266                	BRA	_00214_DS_
+                                           _00391_DS_:
+                                           ;	.line	352; lab1.c	BD0I.status = 0xC8;		// send packet as DATA1, set UOWN bit
+000206   c406     movff	0x406, 0x2         	MOVFF	(_BD0I + 2), r0x02
+000208   f002
+00020a   c407     movff	0x407, 0x3         	MOVFF	(_BD0I + 3), r0x03
+00020c   f003
+00020e   ae01     btfss	0x1, 0x7, 0        	BTFSS	r0x01, 7
+000210   ef0e     goto	0x21c               	GOTO	_00318_DS_
+000212   f001
+000214   c404     movff	0x404, 0x1         	MOVFF	_BD0I, r0x01
+000216   f001
+000218   ef10     goto	0x220               	GOTO	_00319_DS_
+00021a   f001
+                                           _00318_DS_:
+00021c   c400     movff	0x400, 0x1         	MOVFF	_BD0O, r0x01
+00021e   f001
+                                           _00319_DS_:
+000220   0e04     movlw	0x4                	MOVLW	0x04
+000222   1601     andwf	0x1, 0x1, 0        	ANDWF	r0x01, F
+000224   90d8     bcf	0xd8, 0, 0           	BCF	STATUS, 0
+000226   3001     rrcf	0x1, 0, 0           	RRCF	r0x01, W
+000228   6e01     movwf	0x1, 0             	MOVWF	r0x01
+00022a   90d8     bcf	0xd8, 0, 0           	BCF	STATUS, 0
+00022c   3201     rrcf	0x1, 0x1, 0         	RRCF	r0x01, F
+00022e   c002     movff	0x2, 0xfe9         	MOVFF	r0x02, FSR0L
+000230   ffe9
+000232   c003     movff	0x3, 0xfea         	MOVFF	r0x03, FSR0H
+000234   ffea
+000236   c001     movff	0x1, 0xfef         	MOVFF	r0x01, INDF0
+000238   ffef
+                                           ;	.line	353; lab1.c	} else {
+00023a   0e01     movlw	0x1                	MOVLW	0x01
+00023c   0104     movlb	0x4                	BANKSEL	(_BD0I + 2)
+00023e   2506     addwf	0x6, 0, 0x1        	ADDWF	(_BD0I + 2), W, B
+000240   6e01     movwf	0x1, 0             	MOVWF	r0x01
+000242   0e00     movlw	0                  	MOVLW	0x00
+000244   0104     movlb	0x4                	BANKSEL	(_BD0I + 3)
+000246   2107     addwfc	0x7, 0, 0x1       	ADDWFC	(_BD0I + 3), W, B
+000248   6e02     movwf	0x2, 0             	MOVWF	r0x02
+00024a   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+00024c   ffe9
+00024e   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+000250   ffea
+000252   0e00     movlw	0                  	MOVLW	0x00
+000254   6eef     movwf	0xef, 0            	MOVWF	INDF0
+                                           ;	.line	354; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+000256   0e02     movlw	0x2                	MOVLW	0x02
+000258   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+00025a   6f05     movwf	0x5, 0x1           	MOVWF	(_BD0I + 1), B
+                                           ;	.line	355; lab1.c	}
+00025c   0ec8     movlw	0xc8               	MOVLW	0xc8
+00025e   0104     movlb	0x4                	BANKSEL	_BD0I
+000260   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+000262   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000264   f004
+                                           _00214_DS_:
+000266   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	357; lab1.c	case CONFIG_STATE:
+000268   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	359; lab1.c	n = USB_buffer_data[wIndex]&0x0F;	// get EP and strip off direction bit for offset from UEP0
+00026a   ef8d     goto	0x91a               	GOTO	_00316_DS_
+00026c   f004
+                                           _00216_DS_:
+                                           ;	.line	362; lab1.c	BD0I.address[0] = ((buf_desc_ptr->status)&0x04)>>2;	// ...return the BSTALL bit of the specified EP
+00026e   0e0f     movlw	0xf                	MOVLW	0x0f
+000270   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 4)
+000272   1564     andwf	0x64, 0, 0x1       	ANDWF	(_USB_buffer_data + 4), W, B
+000274   6e01     movwf	0x1, 0             	MOVWF	r0x01
+                                           ;	.line	363; lab1.c	BD0I.address[1] = 0x00;
+000276   c001     movff	0x1, 0x2           	MOVFF	r0x01, r0x02
+000278   f002
+00027a   6a03     clrf	0x3, 0              	CLRF	r0x03
+00027c   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+00027e   6e04     movwf	0x4, 0             	MOVWF	r0x04
+000280   2604     addwf	0x4, 0x1, 0        	ADDWF	r0x04, F
+000282   3403     rlcf	0x3, 0, 0           	RLCF	r0x03, W
+000284   6e05     movwf	0x5, 0             	MOVWF	r0x05
+000286   0e80     movlw	0x80               	MOVLW	0x80
+000288   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 4)
+00028a   1564     andwf	0x64, 0, 0x1       	ANDWF	(_USB_buffer_data + 4), W, B
+00028c   6e02     movwf	0x2, 0             	MOVWF	r0x02
+00028e   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+000290   b4d8     btfsc	0xd8, 0x2, 0       	BTFSC	STATUS, 2
+000292   ef4f     goto	0x29e               	GOTO	_00320_DS_
+000294   f001
+000296   0e01     movlw	0x1                	MOVLW	0x01
+000298   6e03     movwf	0x3, 0             	MOVWF	r0x03
+00029a   ef50     goto	0x2a0               	GOTO	_00321_DS_
+00029c   f001
+                                           _00320_DS_:
+00029e   6a03     clrf	0x3, 0              	CLRF	r0x03
+                                           _00321_DS_:
+0002a0   6a06     clrf	0x6, 0              	CLRF	r0x06
+0002a2   5003     movf	0x3, 0, 0           	MOVF	r0x03, W
+0002a4   1204     iorwf	0x4, 0x1, 0        	IORWF	r0x04, F
+0002a6   5006     movf	0x6, 0, 0           	MOVF	r0x06, W
+0002a8   1205     iorwf	0x5, 0x1, 0        	IORWF	r0x05, F
+0002aa   5005     movf	0x5, 0, 0           	MOVF	r0x05, W
+0002ac   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+0002ae   5004     movf	0x4, 0, 0           	MOVF	r0x04, W
+0002b0   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+0002b2   0e00     movlw	0                  	MOVLW	0x00
+0002b4   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+0002b6   0e04     movlw	0x4                	MOVLW	0x04
+0002b8   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+0002ba   eca4     call	0x1148, 0           	CALL	__mulint
+0002bc   f008
+0002be   6e03     movwf	0x3, 0             	MOVWF	r0x03
+0002c0   cff3     movff	0xff3, 0x4         	MOVFF	PRODL, r0x04
+0002c2   f004
+0002c4   0e04     movlw	0x4                	MOVLW	0x04
+0002c6   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+0002c8   0e00     movlw	0                  	MOVLW	LOW(_BD0O)
+0002ca   2603     addwf	0x3, 0x1, 0        	ADDWF	r0x03, F
+0002cc   0e04     movlw	0x4                	MOVLW	HIGH(_BD0O)
+0002ce   2204     addwfc	0x4, 0x1, 0       	ADDWFC	r0x04, F
+0002d0   5004     movf	0x4, 0, 0           	MOVF	r0x04, W
+0002d2   6e04     movwf	0x4, 0             	MOVWF	r0x04
+0002d4   5003     movf	0x3, 0, 0           	MOVF	r0x03, W
+0002d6   6e03     movwf	0x3, 0             	MOVWF	r0x03
+0002d8   0e80     movlw	0x80               	MOVLW	0x80
+0002da   6e05     movwf	0x5, 0             	MOVWF	r0x05
+                                           ;	.line	364; lab1.c	BD0I.bytecount = 0x02;
+0002dc   0e70     movlw	0x70               	MOVLW	0x70
+0002de   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+0002e0   6e06     movwf	0x6, 0             	MOVWF	r0x06
+0002e2   0e0f     movlw	0xf                	MOVLW	0x0f
+0002e4   6a07     clrf	0x7, 0              	CLRF	r0x07
+0002e6   2207     addwfc	0x7, 0x1, 0       	ADDWFC	r0x07, F
+0002e8   0e00     movlw	0                  	MOVLW	0x00
+0002ea   6a08     clrf	0x8, 0              	CLRF	r0x08
+0002ec   2208     addwfc	0x8, 0x1, 0       	ADDWFC	r0x08, F
+0002ee   c006     movff	0x6, 0xfe9         	MOVFF	r0x06, FSR0L
+0002f0   ffe9
+0002f2   c007     movff	0x7, 0xff3         	MOVFF	r0x07, PRODL
+0002f4   fff3
+0002f6   5008     movf	0x8, 0, 0           	MOVF	r0x08, W
+0002f8   ec34     call	0x1268, 0           	CALL	__gptrget1
+0002fa   f009
+0002fc   6e06     movwf	0x6, 0             	MOVWF	r0x06
+0002fe   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+000300   b4d8     btfsc	0xd8, 0x2, 0       	BTFSC	STATUS, 2
+000302   ef87     goto	0x30e               	GOTO	_00322_DS_
+000304   f001
+000306   0e02     movlw	0x2                	MOVLW	0x02
+000308   6e02     movwf	0x2, 0             	MOVWF	r0x02
+00030a   ef89     goto	0x312               	GOTO	_00323_DS_
+00030c   f001
+                                           _00322_DS_:
+00030e   0e04     movlw	0x4                	MOVLW	0x04
+000310   6e02     movwf	0x2, 0             	MOVWF	r0x02
+                                           _00323_DS_:
+000312   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+000314   1606     andwf	0x6, 0x1, 0        	ANDWF	r0x06, F
+000316   5006     movf	0x6, 0, 0           	MOVF	r0x06, W
+000318   b4d8     btfsc	0xd8, 0x2, 0       	BTFSC	STATUS, 2
+00031a   efbe     goto	0x37c               	GOTO	_00218_DS_
+00031c   f001
+                                           ;	.line	365; lab1.c	BD0I.status = 0xC8;		// send packet as DATA1, set UOWN bit
+00031e   c406     movff	0x406, 0x2         	MOVFF	(_BD0I + 2), r0x02
+000320   f002
+000322   c407     movff	0x407, 0x6         	MOVFF	(_BD0I + 3), r0x06
+000324   f006
+000326   c003     movff	0x3, 0xfe9         	MOVFF	r0x03, FSR0L
+000328   ffe9
+00032a   c004     movff	0x4, 0xff3         	MOVFF	r0x04, PRODL
+00032c   fff3
+00032e   5005     movf	0x5, 0, 0           	MOVF	r0x05, W
+000330   ec34     call	0x1268, 0           	CALL	__gptrget1
+000332   f009
+000334   6e07     movwf	0x7, 0             	MOVWF	r0x07
+000336   0e04     movlw	0x4                	MOVLW	0x04
+000338   1607     andwf	0x7, 0x1, 0        	ANDWF	r0x07, F
+00033a   90d8     bcf	0xd8, 0, 0           	BCF	STATUS, 0
+00033c   3007     rrcf	0x7, 0, 0           	RRCF	r0x07, W
+00033e   6e07     movwf	0x7, 0             	MOVWF	r0x07
+000340   90d8     bcf	0xd8, 0, 0           	BCF	STATUS, 0
+000342   3207     rrcf	0x7, 0x1, 0         	RRCF	r0x07, F
+000344   c002     movff	0x2, 0xfe9         	MOVFF	r0x02, FSR0L
+000346   ffe9
+000348   c006     movff	0x6, 0xfea         	MOVFF	r0x06, FSR0H
+00034a   ffea
+00034c   c007     movff	0x7, 0xfef         	MOVFF	r0x07, INDF0
+00034e   ffef
+                                           ;	.line	366; lab1.c	} else {
+000350   0e01     movlw	0x1                	MOVLW	0x01
+000352   0104     movlb	0x4                	BANKSEL	(_BD0I + 2)
+000354   2506     addwf	0x6, 0, 0x1        	ADDWF	(_BD0I + 2), W, B
+000356   6e02     movwf	0x2, 0             	MOVWF	r0x02
+000358   0e00     movlw	0                  	MOVLW	0x00
+00035a   0104     movlb	0x4                	BANKSEL	(_BD0I + 3)
+00035c   2107     addwfc	0x7, 0, 0x1       	ADDWFC	(_BD0I + 3), W, B
+00035e   6e06     movwf	0x6, 0             	MOVWF	r0x06
+000360   c002     movff	0x2, 0xfe9         	MOVFF	r0x02, FSR0L
+000362   ffe9
+000364   c006     movff	0x6, 0xfea         	MOVFF	r0x06, FSR0H
+000366   ffea
+000368   0e00     movlw	0                  	MOVLW	0x00
+00036a   6eef     movwf	0xef, 0            	MOVWF	INDF0
+                                           ;	.line	367; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+00036c   0e02     movlw	0x2                	MOVLW	0x02
+00036e   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+000370   6f05     movwf	0x5, 0x1           	MOVWF	(_BD0I + 1), B
+                                           ;	.line	368; lab1.c	}
+000372   0ec8     movlw	0xc8               	MOVLW	0xc8
+000374   0104     movlb	0x4                	BANKSEL	_BD0I
+000376   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+000378   ef8d     goto	0x91a               	GOTO	_00316_DS_
+00037a   f004
+                                           _00218_DS_:
+00037c   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	370; lab1.c	default:
+00037e   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	372; lab1.c	}
+000380   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000382   f004
+                                           _00220_DS_:
+000384   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	374; lab1.c	default:
+000386   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	376; lab1.c	}
+000388   ef8d     goto	0x91a               	GOTO	_00316_DS_
+00038a   f004
+                                           _00222_DS_:
+00038c   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	378; lab1.c	case CLEAR_FEATURE:
+00038e   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	380; lab1.c	switch (USB_buffer_data[bmRequestType]&0x1F) {	// extract request recipient bits
+000390   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000392   f004
+                                           _00225_DS_:
+                                           ;	.line	383; lab1.c	case DEVICE_REMOTE_WAKEUP:
+000394   0e1f     movlw	0x1f               	MOVLW	0x1f
+000396   0100     movlb	0                  	BANKSEL	_USB_buffer_data
+000398   1560     andwf	0x60, 0, 0x1       	ANDWF	_USB_buffer_data, W, B
+00039a   6e02     movwf	0x2, 0             	MOVWF	r0x02
+00039c   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+00039e   e102     bnz	0x3a4                	BNZ	_00398_DS_
+0003a0   efd9     goto	0x3b2               	GOTO	_00226_DS_
+0003a2   f001
+                                           _00398_DS_:
+0003a4   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+0003a6   0a02     xorlw	0x2                	XORLW	0x02
+0003a8   e102     bnz	0x3ae                	BNZ	_00400_DS_
+0003aa   eff9     goto	0x3f2               	GOTO	_00233_DS_
+0003ac   f001
+                                           _00400_DS_:
+0003ae   efcc     goto	0x598               	GOTO	_00254_DS_
+0003b0   f002
+                                           _00226_DS_:
+0003b2   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 2)
+                                           ;	.line	385; lab1.c	USB_device_status &= 0xFE;
+0003b4   5162     movf	0x62, 0, 0x1        	MOVF	(_USB_buffer_data + 2), W, B
+0003b6   0a01     xorlw	0x1                	XORLW	0x01
+0003b8   e102     bnz	0x3be                	BNZ	_00401_DS_
+0003ba   efe1     goto	0x3c2               	GOTO	_00402_DS_
+0003bc   f001
+                                           _00401_DS_:
+0003be   eff5     goto	0x3ea               	GOTO	_00231_DS_
+0003c0   f001
+                                           _00402_DS_:
+                                           ;	.line	387; lab1.c	USB_device_status |= 0x01;
+0003c2   5000     movf	0, 0, 0             	MOVF	r0x00, W
+0003c4   0a01     xorlw	0x1                	XORLW	0x01
+0003c6   e102     bnz	0x3cc                	BNZ	_00403_DS_
+0003c8   efe8     goto	0x3d0               	GOTO	_00404_DS_
+0003ca   f001
+                                           _00403_DS_:
+0003cc   efec     goto	0x3d8               	GOTO	_00229_DS_
+0003ce   f001
+                                           _00404_DS_:
+0003d0   0100     movlb	0                  	BANKSEL	_USB_device_status
+                                           ;	.line	388; lab1.c	BD0I.bytecount = 0x00;		// set EP0 IN byte count to 0
+0003d2   9177     bcf	0x77, 0, 0x1         	BCF	_USB_device_status, 0, B
+0003d4   efee     goto	0x3dc               	GOTO	_00230_DS_
+0003d6   f001
+                                           _00229_DS_:
+0003d8   0100     movlb	0                  	BANKSEL	_USB_device_status
+                                           ;	.line	390; lab1.c	break;
+0003da   8177     bsf	0x77, 0, 0x1         	BSF	_USB_device_status, 0, B
+                                           _00230_DS_:
+0003dc   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+                                           ;	.line	391; lab1.c	default:
+0003de   6b05     clrf	0x5, 0x1            	CLRF	(_BD0I + 1), B
+                                           ;	.line	392; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+0003e0   0ec8     movlw	0xc8               	MOVLW	0xc8
+0003e2   0104     movlb	0x4                	BANKSEL	_BD0I
+0003e4   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	393; lab1.c	}
+0003e6   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0003e8   f004
+                                           _00231_DS_:
+0003ea   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	395; lab1.c	case RECIPIENT_ENDPOINT:
+0003ec   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	397; lab1.c	case ADDRESS_STATE:
+0003ee   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0003f0   f004
+                                           _00233_DS_:
+0003f2   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+                                           ;	.line	399; lab1.c	BD0I.bytecount = 0x00;		// set EP0 IN byte count to 0
+0003f4   5176     movf	0x76, 0, 0x1        	MOVF	_USB_USWSTAT, W, B
+0003f6   0a02     xorlw	0x2                	XORLW	0x02
+0003f8   e102     bnz	0x3fe                	BNZ	_00407_DS_
+0003fa   ef07     goto	0x40e               	GOTO	_00234_DS_
+0003fc   f002
+                                           _00407_DS_:
+0003fe   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+000400   5176     movf	0x76, 0, 0x1        	MOVF	_USB_USWSTAT, W, B
+000402   0a03     xorlw	0x3                	XORLW	0x03
+000404   e102     bnz	0x40a                	BNZ	_00409_DS_
+000406   ef17     goto	0x42e               	GOTO	_00238_DS_
+000408   f002
+                                           _00409_DS_:
+00040a   efc8     goto	0x590               	GOTO	_00252_DS_
+00040c   f002
+                                           _00234_DS_:
+00040e   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 4)
+                                           ;	.line	401; lab1.c	} else {
+000410   5164     movf	0x64, 0, 0x1        	MOVF	(_USB_buffer_data + 4), W, B
+000412   0b0f     andlw	0xf                	ANDLW	0x0f
+000414   e001     bz	0x418                 	BZ	_00410_DS_
+000416   d007     bra	0x426                	BRA	_00236_DS_
+                                           _00410_DS_:
+000418   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+                                           ;	.line	402; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+00041a   6b05     clrf	0x5, 0x1            	CLRF	(_BD0I + 1), B
+                                           ;	.line	403; lab1.c	}
+00041c   0ec8     movlw	0xc8               	MOVLW	0xc8
+00041e   0104     movlb	0x4                	BANKSEL	_BD0I
+000420   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+000422   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000424   f004
+                                           _00236_DS_:
+000426   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	405; lab1.c	case CONFIG_STATE:
+000428   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	407; lab1.c	if (n = USB_buffer_data[wIndex]&0x0F) {	// get EP and strip off direction bit for offset from UEP0, if not EP0...
+00042a   ef8d     goto	0x91a               	GOTO	_00316_DS_
+00042c   f004
+                                           _00238_DS_:
+                                           ;	.line	410; lab1.c	if (UEP[n]&0x02) {	// if EPn is enabled for IN transfers...
+00042e   c064     movff	0x64, 0x2          	MOVFF	(_USB_buffer_data + 4), r0x02
+000430   f002
+000432   0e0f     movlw	0xf                	MOVLW	0x0f
+000434   1402     andwf	0x2, 0, 0          	ANDWF	r0x02, W
+000436   6e06     movwf	0x6, 0             	MOVWF	r0x06
+000438   c006     movff	0x6, 0x1           	MOVFF	r0x06, r0x01
+00043a   f001
+00043c   5006     movf	0x6, 0, 0           	MOVF	r0x06, W
+00043e   b4d8     btfsc	0xd8, 0x2, 0       	BTFSC	STATUS, 2
+000440   efbd     goto	0x57a               	GOTO	_00249_DS_
+000442   f002
+                                           ;	.line	411; lab1.c	buf_desc_ptr->status = (USB_buffer_data[bRequest]==CLEAR_FEATURE) ? 0x00:0x84;
+000444   c001     movff	0x1, 0x6           	MOVFF	r0x01, r0x06
+000446   f006
+000448   6a07     clrf	0x7, 0              	CLRF	r0x07
+00044a   5006     movf	0x6, 0, 0           	MOVF	r0x06, W
+00044c   6e08     movwf	0x8, 0             	MOVWF	r0x08
+00044e   2608     addwf	0x8, 0x1, 0        	ADDWF	r0x08, F
+000450   3407     rlcf	0x7, 0, 0           	RLCF	r0x07, W
+000452   6e09     movwf	0x9, 0             	MOVWF	r0x09
+000454   0e80     movlw	0x80               	MOVLW	0x80
+000456   1602     andwf	0x2, 0x1, 0        	ANDWF	r0x02, F
+000458   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+00045a   b4d8     btfsc	0xd8, 0x2, 0       	BTFSC	STATUS, 2
+00045c   ef34     goto	0x468               	GOTO	_00324_DS_
+00045e   f002
+000460   0e01     movlw	0x1                	MOVLW	0x01
+000462   6e06     movwf	0x6, 0             	MOVWF	r0x06
+000464   ef35     goto	0x46a               	GOTO	_00325_DS_
+000466   f002
+                                           _00324_DS_:
+000468   6a06     clrf	0x6, 0              	CLRF	r0x06
+                                           _00325_DS_:
+00046a   6a07     clrf	0x7, 0              	CLRF	r0x07
+00046c   5006     movf	0x6, 0, 0           	MOVF	r0x06, W
+00046e   1208     iorwf	0x8, 0x1, 0        	IORWF	r0x08, F
+000470   5007     movf	0x7, 0, 0           	MOVF	r0x07, W
+000472   1209     iorwf	0x9, 0x1, 0        	IORWF	r0x09, F
+000474   5009     movf	0x9, 0, 0           	MOVF	r0x09, W
+000476   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+000478   5008     movf	0x8, 0, 0           	MOVF	r0x08, W
+00047a   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+00047c   0e00     movlw	0                  	MOVLW	0x00
+00047e   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+000480   0e04     movlw	0x4                	MOVLW	0x04
+000482   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+000484   eca4     call	0x1148, 0           	CALL	__mulint
+000486   f008
+000488   6e06     movwf	0x6, 0             	MOVWF	r0x06
+00048a   cff3     movff	0xff3, 0x7         	MOVFF	PRODL, r0x07
+00048c   f007
+00048e   0e04     movlw	0x4                	MOVLW	0x04
+000490   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+000492   0e00     movlw	0                  	MOVLW	LOW(_BD0O)
+000494   2606     addwf	0x6, 0x1, 0        	ADDWF	r0x06, F
+000496   0e04     movlw	0x4                	MOVLW	HIGH(_BD0O)
+000498   2207     addwfc	0x7, 0x1, 0       	ADDWFC	r0x07, F
+00049a   5007     movf	0x7, 0, 0           	MOVF	r0x07, W
+00049c   6e04     movwf	0x4, 0             	MOVWF	r0x04
+00049e   5006     movf	0x6, 0, 0           	MOVF	r0x06, W
+0004a0   6e03     movwf	0x3, 0             	MOVWF	r0x03
+0004a2   0e80     movlw	0x80               	MOVLW	0x80
+0004a4   6e05     movwf	0x5, 0             	MOVWF	r0x05
+                                           ;	.line	412; lab1.c	} else {
+0004a6   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+0004a8   b4d8     btfsc	0xd8, 0x2, 0       	BTFSC	STATUS, 2
+0004aa   ef8c     goto	0x518               	GOTO	_00246_DS_
+0004ac   f002
+                                           ;	.line	413; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag									
+0004ae   0e70     movlw	0x70               	MOVLW	0x70
+0004b0   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+0004b2   6e02     movwf	0x2, 0             	MOVWF	r0x02
+0004b4   0e0f     movlw	0xf                	MOVLW	0x0f
+0004b6   6a06     clrf	0x6, 0              	CLRF	r0x06
+0004b8   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+0004ba   0e00     movlw	0                  	MOVLW	0x00
+0004bc   6a07     clrf	0x7, 0              	CLRF	r0x07
+0004be   2207     addwfc	0x7, 0x1, 0       	ADDWFC	r0x07, F
+0004c0   c002     movff	0x2, 0xfe9         	MOVFF	r0x02, FSR0L
+0004c2   ffe9
+0004c4   c006     movff	0x6, 0xff3         	MOVFF	r0x06, PRODL
+0004c6   fff3
+0004c8   5007     movf	0x7, 0, 0           	MOVF	r0x07, W
+0004ca   ec34     call	0x1268, 0           	CALL	__gptrget1
+0004cc   f009
+0004ce   6e02     movwf	0x2, 0             	MOVWF	r0x02
+0004d0   a202     btfss	0x2, 0x1, 0        	BTFSS	r0x02, 1
+0004d2   ef88     goto	0x510               	GOTO	_00240_DS_
+0004d4   f002
+                                           ;	.line	414; lab1.c	}
+0004d6   c003     movff	0x3, 0x2           	MOVFF	r0x03, r0x02
+0004d8   f002
+0004da   c004     movff	0x4, 0x6           	MOVFF	r0x04, r0x06
+0004dc   f006
+0004de   c005     movff	0x5, 0x7           	MOVFF	r0x05, r0x07
+0004e0   f007
+0004e2   5000     movf	0, 0, 0             	MOVF	r0x00, W
+0004e4   0a01     xorlw	0x1                	XORLW	0x01
+0004e6   e102     bnz	0x4ec                	BNZ	_00413_DS_
+0004e8   ef78     goto	0x4f0               	GOTO	_00414_DS_
+0004ea   f002
+                                           _00413_DS_:
+0004ec   ef7b     goto	0x4f6               	GOTO	_00326_DS_
+0004ee   f002
+                                           _00414_DS_:
+0004f0   6a08     clrf	0x8, 0              	CLRF	r0x08
+0004f2   ef7d     goto	0x4fa               	GOTO	_00327_DS_
+0004f4   f002
+                                           _00326_DS_:
+0004f6   0e84     movlw	0x84               	MOVLW	0x84
+0004f8   6e08     movwf	0x8, 0             	MOVWF	r0x08
+                                           _00327_DS_:
+0004fa   c008     movff	0x8, 0xfe5         	MOVFF	r0x08, POSTDEC1
+0004fc   ffe5
+0004fe   c002     movff	0x2, 0xfe9         	MOVFF	r0x02, FSR0L
+000500   ffe9
+000502   c006     movff	0x6, 0xff3         	MOVFF	r0x06, PRODL
+000504   fff3
+000506   5007     movf	0x7, 0, 0           	MOVF	r0x07, W
+000508   ec51     call	0x12a2, 0           	CALL	__gptrput1
+00050a   f009
+00050c   efbd     goto	0x57a               	GOTO	_00249_DS_
+00050e   f002
+                                           _00240_DS_:
+000510   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	416; lab1.c	if (UEP[n]&0x04) {	// if EPn is enabled for OUT transfers...
+000512   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+000514   efbd     goto	0x57a               	GOTO	_00249_DS_
+000516   f002
+                                           _00246_DS_:
+                                           ;	.line	419; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag									
+000518   0e70     movlw	0x70               	MOVLW	0x70
+00051a   2601     addwf	0x1, 0x1, 0        	ADDWF	r0x01, F
+00051c   0e0f     movlw	0xf                	MOVLW	0x0f
+00051e   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+000520   0e00     movlw	0                  	MOVLW	0x00
+000522   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+000524   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+000526   ffe9
+000528   c002     movff	0x2, 0xff3         	MOVFF	r0x02, PRODL
+00052a   fff3
+00052c   5006     movf	0x6, 0, 0           	MOVF	r0x06, W
+00052e   ec34     call	0x1268, 0           	CALL	__gptrget1
+000530   f009
+000532   6e01     movwf	0x1, 0             	MOVWF	r0x01
+000534   a401     btfss	0x1, 0x2, 0        	BTFSS	r0x01, 2
+000536   efbb     goto	0x576               	GOTO	_00243_DS_
+000538   f002
+                                           ;	.line	420; lab1.c	}
+00053a   c003     movff	0x3, 0x1           	MOVFF	r0x03, r0x01
+00053c   f001
+00053e   c004     movff	0x4, 0x2           	MOVFF	r0x04, r0x02
+000540   f002
+000542   c005     movff	0x5, 0x3           	MOVFF	r0x05, r0x03
+000544   f003
+000546   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000548   0a01     xorlw	0x1                	XORLW	0x01
+00054a   e102     bnz	0x550                	BNZ	_00415_DS_
+00054c   efaa     goto	0x554               	GOTO	_00416_DS_
+00054e   f002
+                                           _00415_DS_:
+000550   efae     goto	0x55c               	GOTO	_00328_DS_
+000552   f002
+                                           _00416_DS_:
+000554   0e88     movlw	0x88               	MOVLW	0x88
+000556   6e00     movwf	0, 0               	MOVWF	r0x00
+000558   efb0     goto	0x560               	GOTO	_00329_DS_
+00055a   f002
+                                           _00328_DS_:
+00055c   0e84     movlw	0x84               	MOVLW	0x84
+00055e   6e00     movwf	0, 0               	MOVWF	r0x00
+                                           _00329_DS_:
+000560   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+000562   ffe5
+000564   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+000566   ffe9
+000568   c002     movff	0x2, 0xff3         	MOVFF	r0x02, PRODL
+00056a   fff3
+00056c   5003     movf	0x3, 0, 0           	MOVF	r0x03, W
+00056e   ec51     call	0x12a2, 0           	CALL	__gptrput1
+000570   f009
+000572   efbd     goto	0x57a               	GOTO	_00249_DS_
+000574   f002
+                                           _00243_DS_:
+000576   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	422; lab1.c	}
+000578   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           _00249_DS_:
+00057a   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	426; lab1.c	}
+00057c   b17a     btfsc	0x7a, 0, 0x1       	BTFSC	_USB_error_flags, 0, B
+00057e   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000580   f004
+000582   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+                                           ;	.line	427; lab1.c	break;
+000584   6b05     clrf	0x5, 0x1            	CLRF	(_BD0I + 1), B
+                                           ;	.line	428; lab1.c	default:
+000586   0ec8     movlw	0xc8               	MOVLW	0xc8
+000588   0104     movlb	0x4                	BANKSEL	_BD0I
+00058a   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	430; lab1.c	}
+00058c   ef8d     goto	0x91a               	GOTO	_00316_DS_
+00058e   f004
+                                           _00252_DS_:
+000590   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	432; lab1.c	default:
+000592   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	434; lab1.c	}
+000594   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000596   f004
+                                           _00254_DS_:
+000598   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	436; lab1.c	case SET_ADDRESS:
+00059a   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	438; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+00059c   ef8d     goto	0x91a               	GOTO	_00316_DS_
+00059e   f004
+                                           _00256_DS_:
+                                           ;	.line	440; lab1.c	USB_dev_req = SET_ADDRESS;	// processing a SET_ADDRESS request
+0005a0   c062     movff	0x62, 0            	MOVFF	(_USB_buffer_data + 2), r0x00
+0005a2   f000
+0005a4   0e80     movlw	0x80               	MOVLW	0x80
+0005a6   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+0005a8   a0d8     btfss	0xd8, 0, 0         	BTFSS	STATUS, 0
+0005aa   efdb     goto	0x5b6               	GOTO	_00258_DS_
+0005ac   f002
+0005ae   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	441; lab1.c	USB_address_pending = USB_buffer_data[wValue];	// save new address
+0005b0   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+0005b2   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0005b4   f004
+                                           _00258_DS_:
+                                           ;	.line	443; lab1.c	BD0I.status = 0xC8;		// send packet as DATA1, set UOWN bit
+0005b6   0e05     movlw	0x5                	MOVLW	0x05
+0005b8   0100     movlb	0                  	BANKSEL	_USB_dev_req
+0005ba   6f78     movwf	0x78, 0x1          	MOVWF	_USB_dev_req, B
+                                           ;	.line	444; lab1.c	}
+0005bc   c000     movff	0, 0x7b            	MOVFF	r0x00, _USB_address_pending
+0005be   f07b
+0005c0   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+                                           ;	.line	445; lab1.c	break;
+0005c2   6b05     clrf	0x5, 0x1            	CLRF	(_BD0I + 1), B
+                                           ;	.line	446; lab1.c	case GET_DESCRIPTOR:
+0005c4   0ec8     movlw	0xc8               	MOVLW	0xc8
+0005c6   0104     movlb	0x4                	BANKSEL	_BD0I
+0005c8   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	448; lab1.c	switch (USB_buffer_data[wValueHigh]) {
+0005ca   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0005cc   f004
+                                           _00260_DS_:
+                                           ;	.line	450; lab1.c	USB_desc_ptr = Device;
+0005ce   0e06     movlw	0x6                	MOVLW	0x06
+0005d0   0100     movlb	0                  	BANKSEL	_USB_dev_req
+0005d2   6f78     movwf	0x78, 0x1          	MOVWF	_USB_dev_req, B
+                                           ;	.line	451; lab1.c	USB_bytes_left = USB_desc_ptr[0];
+0005d4   c063     movff	0x63, 0            	MOVFF	(_USB_buffer_data + 3), r0x00
+0005d6   f000
+0005d8   0e01     movlw	0x1                	MOVLW	0x01
+0005da   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+0005dc   a0d8     btfss	0xd8, 0, 0         	BTFSS	STATUS, 0
+0005de   eff4     goto	0x7e8               	GOTO	_00285_DS_
+0005e0   f003
+0005e2   0e04     movlw	0x4                	MOVLW	0x04
+0005e4   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+0005e6   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+0005e8   eff4     goto	0x7e8               	GOTO	_00285_DS_
+0005ea   f003
+0005ec   0600     decf	0, 0x1, 0           	DECF	r0x00, F
+0005ee   c00a     movff	0xa, 0xfe5         	MOVFF	r0x0a, POSTDEC1
+0005f0   ffe5
+0005f2   c00b     movff	0xb, 0xfe5         	MOVFF	r0x0b, POSTDEC1
+0005f4   ffe5
+0005f6   6a0b     clrf	0xb, 0              	CLRF	r0x0b
+0005f8   3400     rlcf	0, 0, 0             	RLCF	r0x00, W
+0005fa   360b     rlcf	0xb, 0x1, 0         	RLCF	r0x0b, F
+0005fc   34e8     rlcf	0xe8, 0, 0          	RLCF	WREG, W
+0005fe   360b     rlcf	0xb, 0x1, 0         	RLCF	r0x0b, F
+000600   0bfc     andlw	0xfc               	ANDLW	0xfc
+000602   6e0a     movwf	0xa, 0             	MOVWF	r0x0a
+000604   0e00     movlw	0                  	MOVLW	UPPER(_00420_DS_)
+000606   6efb     movwf	0xfb, 0            	MOVWF	PCLATU
+000608   0e06     movlw	0x6                	MOVLW	HIGH(_00420_DS_)
+00060a   6efa     movwf	0xfa, 0            	MOVWF	PCLATH
+00060c   0e24     movlw	0x24               	MOVLW	LOW(_00420_DS_)
+00060e   260a     addwf	0xa, 0x1, 0        	ADDWF	r0x0a, F
+000610   500b     movf	0xb, 0, 0           	MOVF	r0x0b, W
+000612   22fa     addwfc	0xfa, 0x1, 0      	ADDWFC	PCLATH, F
+000614   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+000616   2afb     incf	0xfb, 0x1, 0        	INCF	PCLATU, F
+000618   500a     movf	0xa, 0, 0           	MOVF	r0x0a, W
+00061a   cfe4     movff	0xfe4, 0xb         	MOVFF	PREINC1, r0x0b
+00061c   f00b
+00061e   cfe4     movff	0xfe4, 0xa         	MOVFF	PREINC1, r0x0a
+000620   f00a
+000622   6ef9     movwf	0xf9, 0            	MOVWF	PCL
+                                           _00420_DS_:
+000624   ef18     goto	0x630               	GOTO	_00261_DS_
+000626   f003
+000628   ef43     goto	0x686               	GOTO	_00265_DS_
+00062a   f003
+00062c   ef83     goto	0x706               	GOTO	_00274_DS_
+00062e   f003
+                                           _00261_DS_:
+                                           ;	.line	453; lab1.c	USB_bytes_left = USB_buffer_data[wLength];
+000630   0e06     movlw	0x6                	MOVLW	LOW(_Device)
+000632   0100     movlb	0                  	BANKSEL	_USB_desc_ptr
+000634   6f6c     movwf	0x6c, 0x1          	MOVWF	_USB_desc_ptr, B
+000636   0e10     movlw	0x10               	MOVLW	HIGH(_Device)
+000638   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 1)
+00063a   6f6d     movwf	0x6d, 0x1          	MOVWF	(_USB_desc_ptr + 1), B
+00063c   0e00     movlw	0                  	MOVLW	UPPER(_Device)
+00063e   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 2)
+000640   6f6e     movwf	0x6e, 0x1          	MOVWF	(_USB_desc_ptr + 2), B
+                                           ;	.line	454; lab1.c	}
+000642   c06c     movff	0x6c, 0            	MOVFF	_USB_desc_ptr, r0x00
+000644   f000
+000646   c06d     movff	0x6d, 0x1          	MOVFF	(_USB_desc_ptr + 1), r0x01
+000648   f001
+00064a   c06e     movff	0x6e, 0x2          	MOVFF	(_USB_desc_ptr + 2), r0x02
+00064c   f002
+00064e   c000     movff	0, 0xff6           	MOVFF	r0x00, TBLPTRL
+000650   fff6
+000652   c001     movff	0x1, 0xff7         	MOVFF	r0x01, TBLPTRH
+000654   fff7
+000656   c002     movff	0x2, 0xff8         	MOVFF	r0x02, TBLPTRU
+000658   fff8
+00065a   0009     tblrd	*+                 	TBLRD*+	
+00065c   cff5     movff	0xff5, 0x7c        	MOVFF	TABLAT, _USB_bytes_left
+00065e   f07c
+000660   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 7)
+                                           ;	.line	455; lab1.c	SendDescriptorPacket();
+000662   5167     movf	0x67, 0, 0x1        	MOVF	(_USB_buffer_data + 7), W, B
+000664   a4d8     btfss	0xd8, 0x2, 0       	BTFSS	STATUS, 2
+000666   ef3f     goto	0x67e               	GOTO	_00263_DS_
+000668   f003
+00066a   c066     movff	0x66, 0            	MOVFF	(_USB_buffer_data + 6), r0x00
+00066c   f000
+00066e   0100     movlb	0                  	BANKSEL	_USB_bytes_left
+000670   517c     movf	0x7c, 0, 0x1        	MOVF	_USB_bytes_left, W, B
+000672   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+000674   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+000676   ef3f     goto	0x67e               	GOTO	_00263_DS_
+000678   f003
+                                           ;	.line	456; lab1.c	break;
+00067a   c000     movff	0, 0x7c            	MOVFF	r0x00, _USB_bytes_left
+00067c   f07c
+                                           _00263_DS_:
+                                           ;	.line	458; lab1.c	switch (USB_buffer_data[wValue]) {
+00067e   ecbf     call	0xd7e, 0            	CALL	_SendDescriptorPacket
+000680   f006
+                                           ;	.line	459; lab1.c	case 0:
+000682   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000684   f004
+                                           _00265_DS_:
+000686   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 2)
+                                           ;	.line	461; lab1.c	break;
+000688   5162     movf	0x62, 0, 0x1        	MOVF	(_USB_buffer_data + 2), W, B
+00068a   e102     bnz	0x690                	BNZ	_00422_DS_
+00068c   ef4a     goto	0x694               	GOTO	_00423_DS_
+00068e   f003
+                                           _00422_DS_:
+000690   ef55     goto	0x6aa               	GOTO	_00267_DS_
+000692   f003
+                                           _00423_DS_:
+                                           ;	.line	463; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+000694   0e18     movlw	0x18               	MOVLW	LOW(_Configuration1)
+000696   0100     movlb	0                  	BANKSEL	_USB_desc_ptr
+000698   6f6c     movwf	0x6c, 0x1          	MOVWF	_USB_desc_ptr, B
+00069a   0e10     movlw	0x10               	MOVLW	HIGH(_Configuration1)
+00069c   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 1)
+00069e   6f6d     movwf	0x6d, 0x1          	MOVWF	(_USB_desc_ptr + 1), B
+0006a0   0e00     movlw	0                  	MOVLW	UPPER(_Configuration1)
+0006a2   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 2)
+0006a4   6f6e     movwf	0x6e, 0x1          	MOVWF	(_USB_desc_ptr + 2), B
+                                           ;	.line	464; lab1.c	}
+0006a6   ef57     goto	0x6ae               	GOTO	_00268_DS_
+0006a8   f003
+                                           _00267_DS_:
+0006aa   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	466; lab1.c	USB_bytes_left = USB_desc_ptr[2];	// wTotalLength at an offset of 2
+0006ac   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           _00268_DS_:
+0006ae   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	468; lab1.c	USB_bytes_left = USB_buffer_data[wLength];
+0006b0   b17a     btfsc	0x7a, 0, 0x1       	BTFSC	_USB_error_flags, 0, B
+0006b2   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0006b4   f004
+                                           ;	.line	469; lab1.c	}
+0006b6   0e02     movlw	0x2                	MOVLW	0x02
+0006b8   0100     movlb	0                  	BANKSEL	_USB_desc_ptr
+0006ba   256c     addwf	0x6c, 0, 0x1       	ADDWF	_USB_desc_ptr, W, B
+0006bc   6e00     movwf	0, 0               	MOVWF	r0x00
+0006be   0e00     movlw	0                  	MOVLW	0x00
+0006c0   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 1)
+0006c2   216d     addwfc	0x6d, 0, 0x1      	ADDWFC	(_USB_desc_ptr + 1), W, B
+0006c4   6e01     movwf	0x1, 0             	MOVWF	r0x01
+0006c6   0e00     movlw	0                  	MOVLW	0x00
+0006c8   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 2)
+0006ca   216e     addwfc	0x6e, 0, 0x1      	ADDWFC	(_USB_desc_ptr + 2), W, B
+0006cc   6e02     movwf	0x2, 0             	MOVWF	r0x02
+0006ce   c000     movff	0, 0xff6           	MOVFF	r0x00, TBLPTRL
+0006d0   fff6
+0006d2   c001     movff	0x1, 0xff7         	MOVFF	r0x01, TBLPTRH
+0006d4   fff7
+0006d6   c002     movff	0x2, 0xff8         	MOVFF	r0x02, TBLPTRU
+0006d8   fff8
+0006da   0009     tblrd	*+                 	TBLRD*+	
+0006dc   cff5     movff	0xff5, 0x7c        	MOVFF	TABLAT, _USB_bytes_left
+0006de   f07c
+0006e0   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 7)
+                                           ;	.line	470; lab1.c	SendDescriptorPacket();
+0006e2   5167     movf	0x67, 0, 0x1        	MOVF	(_USB_buffer_data + 7), W, B
+0006e4   a4d8     btfss	0xd8, 0x2, 0       	BTFSS	STATUS, 2
+0006e6   ef7f     goto	0x6fe               	GOTO	_00270_DS_
+0006e8   f003
+0006ea   c066     movff	0x66, 0            	MOVFF	(_USB_buffer_data + 6), r0x00
+0006ec   f000
+0006ee   0100     movlb	0                  	BANKSEL	_USB_bytes_left
+0006f0   517c     movf	0x7c, 0, 0x1        	MOVF	_USB_bytes_left, W, B
+0006f2   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+0006f4   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+0006f6   ef7f     goto	0x6fe               	GOTO	_00270_DS_
+0006f8   f003
+                                           ;	.line	471; lab1.c	}
+0006fa   c000     movff	0, 0x7c            	MOVFF	r0x00, _USB_bytes_left
+0006fc   f07c
+                                           _00270_DS_:
+                                           ;	.line	473; lab1.c	case STRING:
+0006fe   ecbf     call	0xd7e, 0            	CALL	_SendDescriptorPacket
+000700   f006
+                                           ;	.line	475; lab1.c	case 0:
+000702   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000704   f004
+                                           _00274_DS_:
+                                           ;	.line	477; lab1.c	break;
+000706   c062     movff	0x62, 0            	MOVFF	(_USB_buffer_data + 2), r0x00
+000708   f000
+00070a   0e03     movlw	0x3                	MOVLW	0x03
+00070c   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+00070e   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+000710   efcc     goto	0x798               	GOTO	_00278_DS_
+000712   f003
+000714   c00a     movff	0xa, 0xfe5         	MOVFF	r0x0a, POSTDEC1
+000716   ffe5
+000718   c00b     movff	0xb, 0xfe5         	MOVFF	r0x0b, POSTDEC1
+00071a   ffe5
+00071c   6a0b     clrf	0xb, 0              	CLRF	r0x0b
+00071e   3400     rlcf	0, 0, 0             	RLCF	r0x00, W
+000720   360b     rlcf	0xb, 0x1, 0         	RLCF	r0x0b, F
+000722   34e8     rlcf	0xe8, 0, 0          	RLCF	WREG, W
+000724   360b     rlcf	0xb, 0x1, 0         	RLCF	r0x0b, F
+000726   0bfc     andlw	0xfc               	ANDLW	0xfc
+000728   6e0a     movwf	0xa, 0             	MOVWF	r0x0a
+00072a   0e00     movlw	0                  	MOVLW	UPPER(_00426_DS_)
+00072c   6efb     movwf	0xfb, 0            	MOVWF	PCLATU
+00072e   0e07     movlw	0x7                	MOVLW	HIGH(_00426_DS_)
+000730   6efa     movwf	0xfa, 0            	MOVWF	PCLATH
+000732   0e4a     movlw	0x4a               	MOVLW	LOW(_00426_DS_)
+000734   260a     addwf	0xa, 0x1, 0        	ADDWF	r0x0a, F
+000736   500b     movf	0xb, 0, 0           	MOVF	r0x0b, W
+000738   22fa     addwfc	0xfa, 0x1, 0      	ADDWFC	PCLATH, F
+00073a   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+00073c   2afb     incf	0xfb, 0x1, 0        	INCF	PCLATU, F
+00073e   500a     movf	0xa, 0, 0           	MOVF	r0x0a, W
+000740   cfe4     movff	0xfe4, 0xb         	MOVFF	PREINC1, r0x0b
+000742   f00b
+000744   cfe4     movff	0xfe4, 0xa         	MOVFF	PREINC1, r0x0a
+000746   f00a
+000748   6ef9     movwf	0xf9, 0            	MOVWF	PCL
+                                           _00426_DS_:
+00074a   efab     goto	0x756               	GOTO	_00275_DS_
+00074c   f003
+00074e   efb6     goto	0x76c               	GOTO	_00276_DS_
+000750   f003
+000752   efc1     goto	0x782               	GOTO	_00277_DS_
+000754   f003
+                                           _00275_DS_:
+                                           ;	.line	479; lab1.c	USB_desc_ptr = String1;
+000756   0e2a     movlw	0x2a               	MOVLW	LOW(_String0)
+000758   0100     movlb	0                  	BANKSEL	_USB_desc_ptr
+00075a   6f6c     movwf	0x6c, 0x1          	MOVWF	_USB_desc_ptr, B
+00075c   0e10     movlw	0x10               	MOVLW	HIGH(_String0)
+00075e   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 1)
+000760   6f6d     movwf	0x6d, 0x1          	MOVWF	(_USB_desc_ptr + 1), B
+000762   0e00     movlw	0                  	MOVLW	UPPER(_String0)
+000764   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 2)
+000766   6f6e     movwf	0x6e, 0x1          	MOVWF	(_USB_desc_ptr + 2), B
+                                           ;	.line	480; lab1.c	break;
+000768   efce     goto	0x79c               	GOTO	_00279_DS_
+00076a   f003
+                                           _00276_DS_:
+                                           ;	.line	482; lab1.c	USB_desc_ptr = String2;
+00076c   0e2e     movlw	0x2e               	MOVLW	LOW(_String1)
+00076e   0100     movlb	0                  	BANKSEL	_USB_desc_ptr
+000770   6f6c     movwf	0x6c, 0x1          	MOVWF	_USB_desc_ptr, B
+000772   0e10     movlw	0x10               	MOVLW	HIGH(_String1)
+000774   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 1)
+000776   6f6d     movwf	0x6d, 0x1          	MOVWF	(_USB_desc_ptr + 1), B
+000778   0e00     movlw	0                  	MOVLW	UPPER(_String1)
+00077a   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 2)
+00077c   6f6e     movwf	0x6e, 0x1          	MOVWF	(_USB_desc_ptr + 2), B
+                                           ;	.line	483; lab1.c	break;
+00077e   efce     goto	0x79c               	GOTO	_00279_DS_
+000780   f003
+                                           _00277_DS_:
+                                           ;	.line	485; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+000782   0e64     movlw	0x64               	MOVLW	LOW(_String2)
+000784   0100     movlb	0                  	BANKSEL	_USB_desc_ptr
+000786   6f6c     movwf	0x6c, 0x1          	MOVWF	_USB_desc_ptr, B
+000788   0e10     movlw	0x10               	MOVLW	HIGH(_String2)
+00078a   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 1)
+00078c   6f6d     movwf	0x6d, 0x1          	MOVWF	(_USB_desc_ptr + 1), B
+00078e   0e00     movlw	0                  	MOVLW	UPPER(_String2)
+000790   0100     movlb	0                  	BANKSEL	(_USB_desc_ptr + 2)
+000792   6f6e     movwf	0x6e, 0x1          	MOVWF	(_USB_desc_ptr + 2), B
+                                           ;	.line	486; lab1.c	}
+000794   efce     goto	0x79c               	GOTO	_00279_DS_
+000796   f003
+                                           _00278_DS_:
+000798   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	488; lab1.c	USB_bytes_left = USB_desc_ptr[0];
+00079a   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           _00279_DS_:
+00079c   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	490; lab1.c	USB_bytes_left = USB_buffer_data[wLength];
+00079e   b17a     btfsc	0x7a, 0, 0x1       	BTFSC	_USB_error_flags, 0, B
+0007a0   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0007a2   f004
+                                           ;	.line	491; lab1.c	}
+0007a4   c06c     movff	0x6c, 0            	MOVFF	_USB_desc_ptr, r0x00
+0007a6   f000
+0007a8   c06d     movff	0x6d, 0x1          	MOVFF	(_USB_desc_ptr + 1), r0x01
+0007aa   f001
+0007ac   c06e     movff	0x6e, 0x2          	MOVFF	(_USB_desc_ptr + 2), r0x02
+0007ae   f002
+0007b0   c000     movff	0, 0xff6           	MOVFF	r0x00, TBLPTRL
+0007b2   fff6
+0007b4   c001     movff	0x1, 0xff7         	MOVFF	r0x01, TBLPTRH
+0007b6   fff7
+0007b8   c002     movff	0x2, 0xff8         	MOVFF	r0x02, TBLPTRU
+0007ba   fff8
+0007bc   0009     tblrd	*+                 	TBLRD*+	
+0007be   cff5     movff	0xff5, 0x7c        	MOVFF	TABLAT, _USB_bytes_left
+0007c0   f07c
+0007c2   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 7)
+                                           ;	.line	492; lab1.c	SendDescriptorPacket();
+0007c4   5167     movf	0x67, 0, 0x1        	MOVF	(_USB_buffer_data + 7), W, B
+0007c6   a4d8     btfss	0xd8, 0x2, 0       	BTFSS	STATUS, 2
+0007c8   eff0     goto	0x7e0               	GOTO	_00281_DS_
+0007ca   f003
+0007cc   c066     movff	0x66, 0            	MOVFF	(_USB_buffer_data + 6), r0x00
+0007ce   f000
+0007d0   0100     movlb	0                  	BANKSEL	_USB_bytes_left
+0007d2   517c     movf	0x7c, 0, 0x1        	MOVF	_USB_bytes_left, W, B
+0007d4   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+0007d6   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+0007d8   eff0     goto	0x7e0               	GOTO	_00281_DS_
+0007da   f003
+                                           ;	.line	493; lab1.c	}
+0007dc   c000     movff	0, 0x7c            	MOVFF	r0x00, _USB_bytes_left
+0007de   f07c
+                                           _00281_DS_:
+                                           ;	.line	495; lab1.c	default:
+0007e0   ecbf     call	0xd7e, 0            	CALL	_SendDescriptorPacket
+0007e2   f006
+                                           ;	.line	497; lab1.c	}
+0007e4   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0007e6   f004
+                                           _00285_DS_:
+0007e8   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	499; lab1.c	case GET_CONFIGURATION:
+0007ea   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	501; lab1.c	BD0I.bytecount = 0x01;
+0007ec   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0007ee   f004
+                                           _00287_DS_:
+                                           ;	.line	503; lab1.c	break;
+0007f0   c406     movff	0x406, 0           	MOVFF	(_BD0I + 2), r0x00
+0007f2   f000
+0007f4   c407     movff	0x407, 0x1         	MOVFF	(_BD0I + 3), r0x01
+0007f6   f001
+0007f8   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+0007fa   ffe9
+0007fc   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+0007fe   ffea
+000800   c075     movff	0x75, 0xfef        	MOVFF	_USB_curr_config, INDF0
+000802   ffef
+                                           ;	.line	504; lab1.c	case SET_CONFIGURATION:
+000804   0e01     movlw	0x1                	MOVLW	0x01
+000806   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+000808   6f05     movwf	0x5, 0x1           	MOVWF	(_BD0I + 1), B
+                                           ;	.line	505; lab1.c	if (USB_buffer_data[wValue]<=NUM_CONFIGURATIONS) {
+00080a   0ec8     movlw	0xc8               	MOVLW	0xc8
+00080c   0104     movlb	0x4                	BANKSEL	_BD0I
+00080e   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	506; lab1.c	UEP1 = 0x00;	// clear all EP control registers except for EP0 to disable EP1-EP15 prior to setting configuration
+000810   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000812   f004
+                                           _00288_DS_:
+                                           ;	.line	508; lab1.c	UEP3 = 0x00;
+000814   c062     movff	0x62, 0            	MOVFF	(_USB_buffer_data + 2), r0x00
+000816   f000
+000818   0e02     movlw	0x2                	MOVLW	0x02
+00081a   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+00081c   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+00081e   ef37     goto	0x86e               	GOTO	_00293_DS_
+000820   f004
+                                           ;	.line	509; lab1.c	UEP4 = 0x00;
+000822   6a71     clrf	0x71, 0             	CLRF	_UEP1
+                                           ;	.line	510; lab1.c	UEP5 = 0x00;
+000824   6a72     clrf	0x72, 0             	CLRF	_UEP2
+                                           ;	.line	511; lab1.c	UEP6 = 0x00;
+000826   6a73     clrf	0x73, 0             	CLRF	_UEP3
+                                           ;	.line	512; lab1.c	UEP7 = 0x00;
+000828   6a74     clrf	0x74, 0             	CLRF	_UEP4
+                                           ;	.line	513; lab1.c	UEP8 = 0x00;
+00082a   6a75     clrf	0x75, 0             	CLRF	_UEP5
+                                           ;	.line	514; lab1.c	UEP9 = 0x00;
+00082c   6a76     clrf	0x76, 0             	CLRF	_UEP6
+                                           ;	.line	515; lab1.c	UEP10 = 0x00;
+00082e   6a77     clrf	0x77, 0             	CLRF	_UEP7
+                                           ;	.line	516; lab1.c	UEP11 = 0x00;
+000830   6a78     clrf	0x78, 0             	CLRF	_UEP8
+                                           ;	.line	517; lab1.c	UEP12 = 0x00;
+000832   6a79     clrf	0x79, 0             	CLRF	_UEP9
+                                           ;	.line	518; lab1.c	UEP13 = 0x00;
+000834   6a7a     clrf	0x7a, 0             	CLRF	_UEP10
+                                           ;	.line	519; lab1.c	UEP14 = 0x00;
+000836   6a7b     clrf	0x7b, 0             	CLRF	_UEP11
+                                           ;	.line	520; lab1.c	UEP15 = 0x00;
+000838   6a7c     clrf	0x7c, 0             	CLRF	_UEP12
+                                           ;	.line	521; lab1.c	switch (USB_curr_config = USB_buffer_data[wValue]) {
+00083a   6a7d     clrf	0x7d, 0             	CLRF	_UEP13
+                                           ;	.line	522; lab1.c	case 0:
+00083c   6a7e     clrf	0x7e, 0             	CLRF	_UEP14
+                                           ;	.line	523; lab1.c	USB_USWSTAT = ADDRESS_STATE;
+00083e   6a7f     clrf	0x7f, 0             	CLRF	_UEP15
+                                           ;	.line	524; lab1.c	break;
+000840   c000     movff	0, 0x75            	MOVFF	r0x00, _USB_curr_config
+000842   f075
+000844   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000846   e102     bnz	0x84c                	BNZ	_00429_DS_
+000848   ef28     goto	0x850               	GOTO	_00430_DS_
+00084a   f004
+                                           _00429_DS_:
+00084c   ef2d     goto	0x85a               	GOTO	_00290_DS_
+00084e   f004
+                                           _00430_DS_:
+                                           ;	.line	526; lab1.c	USB_USWSTAT = CONFIG_STATE;
+000850   0e02     movlw	0x2                	MOVLW	0x02
+000852   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+000854   6f76     movwf	0x76, 0x1          	MOVWF	_USB_USWSTAT, B
+                                           ;	.line	527; lab1.c	}
+000856   ef30     goto	0x860               	GOTO	_00291_DS_
+000858   f004
+                                           _00290_DS_:
+                                           ;	.line	529; lab1.c	BD0I.status = 0xC8;		// send packet as DATA1, set UOWN bit
+00085a   0e03     movlw	0x3                	MOVLW	0x03
+00085c   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+00085e   6f76     movwf	0x76, 0x1          	MOVWF	_USB_USWSTAT, B
+                                           _00291_DS_:
+000860   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+                                           ;	.line	531; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+000862   6b05     clrf	0x5, 0x1            	CLRF	(_BD0I + 1), B
+                                           ;	.line	532; lab1.c	}
+000864   0ec8     movlw	0xc8               	MOVLW	0xc8
+000866   0104     movlb	0x4                	BANKSEL	_BD0I
+000868   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+00086a   ef8d     goto	0x91a               	GOTO	_00316_DS_
+00086c   f004
+                                           _00293_DS_:
+00086e   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	534; lab1.c	case GET_INTERFACE:
+000870   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	536; lab1.c	case CONFIG_STATE:
+000872   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000874   f004
+                                           _00295_DS_:
+000876   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+                                           ;	.line	538; lab1.c	BD0I.address[0] = 0x00;	// always send back 0 for bAlternateSetting
+000878   5176     movf	0x76, 0, 0x1        	MOVF	_USB_USWSTAT, W, B
+00087a   0a03     xorlw	0x3                	XORLW	0x03
+00087c   e102     bnz	0x882                	BNZ	_00431_DS_
+00087e   ef43     goto	0x886               	GOTO	_00432_DS_
+000880   f004
+                                           _00431_DS_:
+000882   ef5f     goto	0x8be               	GOTO	_00300_DS_
+000884   f004
+                                           _00432_DS_:
+                                           ;	.line	540; lab1.c	BD0I.status = 0xC8;		// send packet as DATA1, set UOWN bit
+000886   0e01     movlw	0x1                	MOVLW	0x01
+000888   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 4)
+00088a   5d64     subwf	0x64, 0, 0x1       	SUBWF	(_USB_buffer_data + 4), W, B
+00088c   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+00088e   ef5b     goto	0x8b6               	GOTO	_00298_DS_
+000890   f004
+                                           ;	.line	541; lab1.c	} else {
+000892   c406     movff	0x406, 0           	MOVFF	(_BD0I + 2), r0x00
+000894   f000
+000896   c407     movff	0x407, 0x1         	MOVFF	(_BD0I + 3), r0x01
+000898   f001
+00089a   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+00089c   ffe9
+00089e   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+0008a0   ffea
+0008a2   0e00     movlw	0                  	MOVLW	0x00
+0008a4   6eef     movwf	0xef, 0            	MOVWF	INDF0
+                                           ;	.line	542; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+0008a6   0e01     movlw	0x1                	MOVLW	0x01
+0008a8   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+0008aa   6f05     movwf	0x5, 0x1           	MOVWF	(_BD0I + 1), B
+                                           ;	.line	543; lab1.c	}
+0008ac   0ec8     movlw	0xc8               	MOVLW	0xc8
+0008ae   0104     movlb	0x4                	BANKSEL	_BD0I
+0008b0   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+0008b2   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0008b4   f004
+                                           _00298_DS_:
+0008b6   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	545; lab1.c	default:
+0008b8   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	547; lab1.c	}
+0008ba   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0008bc   f004
+                                           _00300_DS_:
+0008be   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	549; lab1.c	case SET_INTERFACE:
+0008c0   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	551; lab1.c	case CONFIG_STATE:
+0008c2   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0008c4   f004
+                                           _00302_DS_:
+0008c6   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+                                           ;	.line	553; lab1.c	switch (USB_buffer_data[wValue]) {
+0008c8   5176     movf	0x76, 0, 0x1        	MOVF	_USB_USWSTAT, W, B
+0008ca   0a03     xorlw	0x3                	XORLW	0x03
+0008cc   e102     bnz	0x8d2                	BNZ	_00434_DS_
+0008ce   ef6b     goto	0x8d6               	GOTO	_00435_DS_
+0008d0   f004
+                                           _00434_DS_:
+0008d2   ef87     goto	0x90e               	GOTO	_00310_DS_
+0008d4   f004
+                                           _00435_DS_:
+                                           ;	.line	555; lab1.c	BD0I.bytecount = 0x00;		// set EP0 IN byte count to 0
+0008d6   0e01     movlw	0x1                	MOVLW	0x01
+0008d8   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 4)
+0008da   5d64     subwf	0x64, 0, 0x1       	SUBWF	(_USB_buffer_data + 4), W, B
+0008dc   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+0008de   ef83     goto	0x906               	GOTO	_00308_DS_
+0008e0   f004
+0008e2   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 2)
+                                           ;	.line	556; lab1.c	BD0I.status = 0xC8;		// send packet as DATA1, set UOWN bit
+0008e4   5162     movf	0x62, 0, 0x1        	MOVF	(_USB_buffer_data + 2), W, B
+0008e6   e102     bnz	0x8ec                	BNZ	_00437_DS_
+0008e8   ef78     goto	0x8f0               	GOTO	_00438_DS_
+0008ea   f004
+                                           _00437_DS_:
+0008ec   ef7f     goto	0x8fe               	GOTO	_00305_DS_
+0008ee   f004
+                                           _00438_DS_:
+0008f0   0104     movlb	0x4                	BANKSEL	(_BD0I + 1)
+                                           ;	.line	558; lab1.c	default:
+0008f2   6b05     clrf	0x5, 0x1            	CLRF	(_BD0I + 1), B
+                                           ;	.line	559; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+0008f4   0ec8     movlw	0xc8               	MOVLW	0xc8
+0008f6   0104     movlb	0x4                	BANKSEL	_BD0I
+0008f8   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	560; lab1.c	}
+0008fa   ef8d     goto	0x91a               	GOTO	_00316_DS_
+0008fc   f004
+                                           _00305_DS_:
+0008fe   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	562; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+000900   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	563; lab1.c	}
+000902   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000904   f004
+                                           _00308_DS_:
+000906   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	565; lab1.c	default:
+000908   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	567; lab1.c	}
+00090a   ef8d     goto	0x91a               	GOTO	_00316_DS_
+00090c   f004
+                                           _00310_DS_:
+00090e   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	569; lab1.c	case SET_DESCRIPTOR:
+000910   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           ;	.line	571; lab1.c	default:
+000912   ef8d     goto	0x91a               	GOTO	_00316_DS_
+000914   f004
+                                           _00314_DS_:
+000916   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	575; lab1.c	
+000918   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           _00316_DS_:
+                                           ;	.line	576; lab1.c	void ClassRequests(void) {
+00091a   cfe4     movff	0xfe4, 0x9         	MOVFF	PREINC1, r0x09
+00091c   f009
+00091e   cfe4     movff	0xfe4, 0x8         	MOVFF	PREINC1, r0x08
+000920   f008
+000922   cfe4     movff	0xfe4, 0x7         	MOVFF	PREINC1, r0x07
+000924   f007
+000926   cfe4     movff	0xfe4, 0x6         	MOVFF	PREINC1, r0x06
+000928   f006
+00092a   cfe4     movff	0xfe4, 0x5         	MOVFF	PREINC1, r0x05
+00092c   f005
+00092e   cfe4     movff	0xfe4, 0x4         	MOVFF	PREINC1, r0x04
+000930   f004
+000932   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+000934   f003
+000936   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+000938   f002
+00093a   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+00093c   f001
+00093e   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+000940   f000
+000942   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+000944   ffd9
+000946   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lab1__ProcessSetupToken	code
+                                           _ProcessSetupToken:
+                                           ;	.line	292; lab1.c	for (n = 0; n<8; n++) {
+000b20   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+000b22   ffe5
+000b24   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+000b26   ffd9
+000b28   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+000b2a   ffe5
+000b2c   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+000b2e   ffe5
+000b30   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+000b32   ffe5
+000b34   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+000b36   ffe5
+000b38   c004     movff	0x4, 0xfe5         	MOVFF	r0x04, POSTDEC1
+000b3a   ffe5
+                                           ;	.line	294; lab1.c	}
+000b3c   8481     bsf	0x81, 0x2, 0         	BSF	_PORTB, 2
+                                           ;	.line	295; lab1.c	BD0O.bytecount = MAX_PACKET_SIZE;	// reset the EP0 OUT byte count
+000b3e   6a00     clrf	0, 0                	CLRF	r0x00
+                                           _00166_DS_:
+000b40   0e08     movlw	0x8                	MOVLW	0x08
+000b42   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+000b44   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+000b46   efc2     goto	0xb84               	GOTO	_00169_DS_
+000b48   f005
+                                           ;	.line	296; lab1.c	BD0I.status = 0x08;			// return the EP0 IN buffer to us (dequeue any pending requests)			
+000b4a   0e60     movlw	0x60               	MOVLW	LOW(_USB_buffer_data)
+000b4c   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+000b4e   6e01     movwf	0x1, 0             	MOVWF	r0x01
+000b50   6a02     clrf	0x2, 0              	CLRF	r0x02
+000b52   0e00     movlw	0                  	MOVLW	HIGH(_USB_buffer_data)
+000b54   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+000b56   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000b58   0100     movlb	0                  	BANKSEL	(_USB_buffer_desc + 2)
+000b5a   256a     addwf	0x6a, 0, 0x1       	ADDWF	(_USB_buffer_desc + 2), W, B
+000b5c   6e03     movwf	0x3, 0             	MOVWF	r0x03
+000b5e   6ae8     clrf	0xe8, 0             	CLRF	WREG
+000b60   0100     movlb	0                  	BANKSEL	(_USB_buffer_desc + 3)
+000b62   216b     addwfc	0x6b, 0, 0x1      	ADDWFC	(_USB_buffer_desc + 3), W, B
+000b64   6e04     movwf	0x4, 0             	MOVWF	r0x04
+000b66   c003     movff	0x3, 0xfe9         	MOVFF	r0x03, FSR0L
+000b68   ffe9
+000b6a   c004     movff	0x4, 0xfea         	MOVFF	r0x04, FSR0H
+000b6c   ffea
+000b6e   cfef     movff	0xfef, 0x3         	MOVFF	INDF0, r0x03
+000b70   f003
+000b72   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+000b74   ffe9
+000b76   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+000b78   ffea
+000b7a   c003     movff	0x3, 0xfef         	MOVFF	r0x03, INDF0
+000b7c   ffef
+                                           ;	.line	295; lab1.c	BD0O.bytecount = MAX_PACKET_SIZE;	// reset the EP0 OUT byte count
+000b7e   2a00     incf	0, 0x1, 0           	INCF	r0x00, F
+000b80   efa0     goto	0xb40               	GOTO	_00166_DS_
+000b82   f005
+                                           _00169_DS_:
+                                           ;	.line	298; lab1.c	UCONbits.PKTDIS = 0;			// assuming there is nothing to dequeue, clear the packet disable bit
+000b84   0e08     movlw	0x8                	MOVLW	0x08
+000b86   0104     movlb	0x4                	BANKSEL	(_BD0O + 1)
+000b88   6f01     movwf	0x1, 0x1           	MOVWF	(_BD0O + 1), B
+                                           ;	.line	299; lab1.c	USB_dev_req = NO_REQUEST;		// clear the device request in process
+000b8a   0e08     movlw	0x8                	MOVLW	0x08
+000b8c   0104     movlb	0x4                	BANKSEL	_BD0I
+000b8e   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	300; lab1.c	switch (USB_buffer_data[bmRequestType]&0x60) {	// extract request type bits
+000b90   c060     movff	0x60, 0            	MOVFF	_USB_buffer_data, r0x00
+000b92   f000
+000b94   0e80     movlw	0x80               	MOVLW	0x80
+000b96   1400     andwf	0, 0, 0            	ANDWF	r0x00, W
+000b98   6e01     movwf	0x1, 0             	MOVWF	r0x01
+000b9a   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+000b9c   80d8     bsf	0xd8, 0, 0           	BSF	STATUS, 0
+000b9e   66e8     tstfsz	0xe8, 0           	TSTFSZ	WREG
+000ba0   90d8     bcf	0xd8, 0, 0           	BCF	STATUS, 0
+000ba2   6a01     clrf	0x1, 0              	CLRF	r0x01
+000ba4   3601     rlcf	0x1, 0x1, 0         	RLCF	r0x01, F
+000ba6   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+000ba8   b4d8     btfsc	0xd8, 0x2, 0       	BTFSC	STATUS, 2
+000baa   efea     goto	0xbd4               	GOTO	_00174_DS_
+000bac   f005
+000bae   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 6)
+000bb0   5166     movf	0x66, 0, 0x1        	MOVF	(_USB_buffer_data + 6), W, B
+000bb2   a4d8     btfss	0xd8, 0x2, 0       	BTFSS	STATUS, 2
+000bb4   efe4     goto	0xbc8               	GOTO	_00178_DS_
+000bb6   f005
+000bb8   0100     movlb	0                  	BANKSEL	(_USB_buffer_data + 7)
+000bba   5167     movf	0x67, 0, 0x1        	MOVF	(_USB_buffer_data + 7), W, B
+000bbc   a4d8     btfss	0xd8, 0x2, 0       	BTFSS	STATUS, 2
+000bbe   efe4     goto	0xbc8               	GOTO	_00178_DS_
+000bc0   f005
+000bc2   6a01     clrf	0x1, 0              	CLRF	r0x01
+000bc4   efe6     goto	0xbcc               	GOTO	_00179_DS_
+000bc6   f005
+                                           _00178_DS_:
+000bc8   0e01     movlw	0x1                	MOVLW	0x01
+000bca   6e01     movwf	0x1, 0             	MOVWF	r0x01
+                                           _00179_DS_:
+000bcc   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+000bce   a4d8     btfss	0xd8, 0x2, 0       	BTFSS	STATUS, 2
+000bd0   efed     goto	0xbda               	GOTO	_00175_DS_
+000bd2   f005
+                                           _00174_DS_:
+000bd4   6a01     clrf	0x1, 0              	CLRF	r0x01
+000bd6   efef     goto	0xbde               	GOTO	_00176_DS_
+000bd8   f005
+                                           _00175_DS_:
+000bda   0e01     movlw	0x1                	MOVLW	0x01
+000bdc   6e01     movwf	0x1, 0             	MOVWF	r0x01
+                                           _00176_DS_:
+000bde   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+000be0   b4d8     btfsc	0xd8, 0x2, 0       	BTFSC	STATUS, 2
+000be2   eff7     goto	0xbee               	GOTO	_00172_DS_
+000be4   f005
+000be6   0ec8     movlw	0xc8               	MOVLW	0xc8
+000be8   6e01     movwf	0x1, 0             	MOVWF	r0x01
+000bea   eff9     goto	0xbf2               	GOTO	_00173_DS_
+000bec   f005
+                                           _00172_DS_:
+000bee   0e88     movlw	0x88               	MOVLW	0x88
+000bf0   6e01     movwf	0x1, 0             	MOVWF	r0x01
+                                           _00173_DS_:
+000bf2   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+000bf4   0104     movlb	0x4                	BANKSEL	_BD0O
+000bf6   6f00     movwf	0, 0x1             	MOVWF	_BD0O, B
+                                           ;	.line	301; lab1.c	case STANDARD:
+000bf8   986d     bcf	0x6d, 0x4, 0         	BCF	_UCONbits, 4
+                                           ;	.line	302; lab1.c	StandardRequests();
+000bfa   0eff     movlw	0xff               	MOVLW	0xff
+000bfc   0100     movlb	0                  	BANKSEL	_USB_dev_req
+000bfe   6f78     movwf	0x78, 0x1          	MOVWF	_USB_dev_req, B
+                                           ;	.line	303; lab1.c	break;
+000c00   0e60     movlw	0x60               	MOVLW	0x60
+000c02   1600     andwf	0, 0x1, 0          	ANDWF	r0x00, F
+000c04   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000c06   e102     bnz	0xc0c                	BNZ	_00194_DS_
+000c08   ef12     goto	0xc24               	GOTO	_00161_DS_
+000c0a   f006
+                                           _00194_DS_:
+000c0c   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000c0e   0a20     xorlw	0x20               	XORLW	0x20
+000c10   e102     bnz	0xc16                	BNZ	_00196_DS_
+000c12   ef16     goto	0xc2c               	GOTO	_00162_DS_
+000c14   f006
+                                           _00196_DS_:
+000c16   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000c18   0a40     xorlw	0x40               	XORLW	0x40
+000c1a   e102     bnz	0xc20                	BNZ	_00198_DS_
+000c1c   ef1a     goto	0xc34               	GOTO	_00163_DS_
+000c1e   f006
+                                           _00198_DS_:
+000c20   ef1e     goto	0xc3c               	GOTO	_00164_DS_
+000c22   f006
+                                           _00161_DS_:
+                                           ;	.line	305; lab1.c	ClassRequests();
+000c24   ec15     call	0x2a, 0             	CALL	_StandardRequests
+000c26   f000
+                                           ;	.line	306; lab1.c	break;
+000c28   ef20     goto	0xc40               	GOTO	_00170_DS_
+000c2a   f006
+                                           _00162_DS_:
+                                           ;	.line	308; lab1.c	VendorRequests();
+000c2c   ec5b     call	0x12b6, 0           	CALL	_ClassRequests
+000c2e   f009
+                                           ;	.line	309; lab1.c	break;
+000c30   ef20     goto	0xc40               	GOTO	_00170_DS_
+000c32   f006
+                                           _00163_DS_:
+                                           ;	.line	311; lab1.c	USB_error_flags |= 0x01;	// set Request Error Flag
+000c34   ecf4     call	0x11e8, 0           	CALL	_VendorRequests
+000c36   f008
+                                           ;	.line	312; lab1.c	}
+000c38   ef20     goto	0xc40               	GOTO	_00170_DS_
+000c3a   f006
+                                           _00164_DS_:
+000c3c   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	314; lab1.c	
+000c3e   817a     bsf	0x7a, 0, 0x1         	BSF	_USB_error_flags, 0, B
+                                           _00170_DS_:
+                                           ;	.line	315; lab1.c	void StandardRequests(void) {
+000c40   cfe4     movff	0xfe4, 0x4         	MOVFF	PREINC1, r0x04
+000c42   f004
+000c44   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+000c46   f003
+000c48   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+000c4a   f002
+000c4c   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+000c4e   f001
+000c50   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+000c52   f000
+000c54   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+000c56   ffd9
+000c58   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lab1__ServiceUSB	code
+                                           _ServiceUSB:
+                                           ;	.line	210; lab1.c	if (UIRbits.UERRIF) {
+000948   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+00094a   ffe5
+00094c   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+00094e   ffd9
+000950   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+000952   ffe5
+000954   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+000956   ffe5
+000958   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+00095a   ffe5
+00095c   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+00095e   ffe5
+                                           ;	.line	213; lab1.c	UIRbits.SOFIF = 0;
+000960   a268     btfss	0x68, 0x1, 0       	BTFSS	_UIRbits, 1
+000962   efb6     goto	0x96c               	GOTO	_00134_DS_
+000964   f004
+                                           ;	.line	214; lab1.c	} else if (UIRbits.IDLEIF) {
+000966   6a6a     clrf	0x6a, 0             	CLRF	_UEIR
+000968   ef85     goto	0xb0a               	GOTO	_00136_DS_
+00096a   f005
+                                           _00134_DS_:
+                                           ;	.line	215; lab1.c	UIRbits.IDLEIF = 0;
+00096c   ac68     btfss	0x68, 0x6, 0       	BTFSS	_UIRbits, 6
+00096e   efbc     goto	0x978               	GOTO	_00131_DS_
+000970   f004
+                                           ;	.line	216; lab1.c	UCONbits.SUSPND = 1;
+000972   9c68     bcf	0x68, 0x6, 0         	BCF	_UIRbits, 6
+000974   ef85     goto	0xb0a               	GOTO	_00136_DS_
+000976   f005
+                                           _00131_DS_:
+                                           ;	.line	217; lab1.c	} else if (UIRbits.ACTVIF) {
+000978   a868     btfss	0x68, 0x4, 0       	BTFSS	_UIRbits, 4
+00097a   efc3     goto	0x986               	GOTO	_00128_DS_
+00097c   f004
+                                           ;	.line	218; lab1.c	UIRbits.ACTVIF = 0;
+00097e   9868     bcf	0x68, 0x4, 0         	BCF	_UIRbits, 4
+                                           ;	.line	219; lab1.c	UCONbits.SUSPND = 0;
+000980   826d     bsf	0x6d, 0x1, 0         	BSF	_UCONbits, 1
+000982   ef85     goto	0xb0a               	GOTO	_00136_DS_
+000984   f005
+                                           _00128_DS_:
+                                           ;	.line	220; lab1.c	} else if (UIRbits.STALLIF) {
+000986   a468     btfss	0x68, 0x2, 0       	BTFSS	_UIRbits, 2
+000988   efca     goto	0x994               	GOTO	_00125_DS_
+00098a   f004
+                                           ;	.line	221; lab1.c	UIRbits.STALLIF = 0;
+00098c   9468     bcf	0x68, 0x2, 0         	BCF	_UIRbits, 2
+                                           ;	.line	222; lab1.c	} else if (UIRbits.URSTIF) {
+00098e   926d     bcf	0x6d, 0x1, 0         	BCF	_UCONbits, 1
+000990   ef85     goto	0xb0a               	GOTO	_00136_DS_
+000992   f005
+                                           _00125_DS_:
+                                           ;	.line	223; lab1.c	USB_curr_config = 0x00;
+000994   aa68     btfss	0x68, 0x5, 0       	BTFSS	_UIRbits, 5
+000996   efd0     goto	0x9a0               	GOTO	_00122_DS_
+000998   f004
+                                           ;	.line	224; lab1.c	UIRbits.TRNIF = 0;		// clear TRNIF four times to clear out the USTAT FIFO
+00099a   9a68     bcf	0x68, 0x5, 0         	BCF	_UIRbits, 5
+00099c   ef85     goto	0xb0a               	GOTO	_00136_DS_
+00099e   f005
+                                           _00122_DS_:
+                                           ;	.line	225; lab1.c	UIRbits.TRNIF = 0;
+0009a0   a068     btfss	0x68, 0, 0         	BTFSS	_UIRbits, 0
+0009a2   ef21     goto	0xa42               	GOTO	_00119_DS_
+0009a4   f005
+0009a6   0100     movlb	0                  	BANKSEL	_USB_curr_config
+                                           ;	.line	226; lab1.c	UIRbits.TRNIF = 0;
+0009a8   6b75     clrf	0x75, 0x1           	CLRF	_USB_curr_config, B
+                                           ;	.line	227; lab1.c	UIRbits.TRNIF = 0;
+0009aa   9668     bcf	0x68, 0x3, 0         	BCF	_UIRbits, 3
+                                           ;	.line	228; lab1.c	UEP0 = 0x00;				// clear all EP control registers to disable all endpoints
+0009ac   9668     bcf	0x68, 0x3, 0         	BCF	_UIRbits, 3
+                                           ;	.line	229; lab1.c	UEP1 = 0x00;
+0009ae   9668     bcf	0x68, 0x3, 0         	BCF	_UIRbits, 3
+                                           ;	.line	230; lab1.c	UEP2 = 0x00;
+0009b0   9668     bcf	0x68, 0x3, 0         	BCF	_UIRbits, 3
+                                           ;	.line	231; lab1.c	UEP3 = 0x00;
+0009b2   6a70     clrf	0x70, 0             	CLRF	_UEP0
+                                           ;	.line	232; lab1.c	UEP4 = 0x00;
+0009b4   6a71     clrf	0x71, 0             	CLRF	_UEP1
+                                           ;	.line	233; lab1.c	UEP5 = 0x00;
+0009b6   6a72     clrf	0x72, 0             	CLRF	_UEP2
+                                           ;	.line	234; lab1.c	UEP6 = 0x00;
+0009b8   6a73     clrf	0x73, 0             	CLRF	_UEP3
+                                           ;	.line	235; lab1.c	UEP7 = 0x00;
+0009ba   6a74     clrf	0x74, 0             	CLRF	_UEP4
+                                           ;	.line	236; lab1.c	UEP8 = 0x00;
+0009bc   6a75     clrf	0x75, 0             	CLRF	_UEP5
+                                           ;	.line	237; lab1.c	UEP9 = 0x00;
+0009be   6a76     clrf	0x76, 0             	CLRF	_UEP6
+                                           ;	.line	238; lab1.c	UEP10 = 0x00;
+0009c0   6a77     clrf	0x77, 0             	CLRF	_UEP7
+                                           ;	.line	239; lab1.c	UEP11 = 0x00;
+0009c2   6a78     clrf	0x78, 0             	CLRF	_UEP8
+                                           ;	.line	240; lab1.c	UEP12 = 0x00;
+0009c4   6a79     clrf	0x79, 0             	CLRF	_UEP9
+                                           ;	.line	241; lab1.c	UEP13 = 0x00;
+0009c6   6a7a     clrf	0x7a, 0             	CLRF	_UEP10
+                                           ;	.line	242; lab1.c	UEP14 = 0x00;
+0009c8   6a7b     clrf	0x7b, 0             	CLRF	_UEP11
+                                           ;	.line	243; lab1.c	UEP15 = 0x00;
+0009ca   6a7c     clrf	0x7c, 0             	CLRF	_UEP12
+                                           ;	.line	244; lab1.c	
+0009cc   6a7d     clrf	0x7d, 0             	CLRF	_UEP13
+                                           ;	.line	245; lab1.c	BD0O.bytecount = MAX_PACKET_SIZE;
+0009ce   6a7e     clrf	0x7e, 0             	CLRF	_UEP14
+                                           ;	.line	246; lab1.c	BD0O.address = EP0_OUT_buffer;	// EP0 OUT gets a buffer
+0009d0   6a7f     clrf	0x7f, 0             	CLRF	_UEP15
+                                           ;	.line	248; lab1.c	BD0I.address = EP0_IN_buffer;	// EP0 IN gets a buffer
+0009d2   0e08     movlw	0x8                	MOVLW	0x08
+0009d4   0104     movlb	0x4                	BANKSEL	(_BD0O + 1)
+0009d6   6f01     movwf	0x1, 0x1           	MOVWF	(_BD0O + 1), B
+                                           ;	.line	249; lab1.c	BD0I.status = 0x08;				// clear UOWN bit (MCU can write)
+0009d8   0e80     movlw	0x80               	MOVLW	LOW(_EP0_OUT_buffer)
+0009da   0104     movlb	0x4                	BANKSEL	(_BD0O + 2)
+0009dc   6f02     movwf	0x2, 0x1           	MOVWF	(_BD0O + 2), B
+0009de   0e04     movlw	0x4                	MOVLW	HIGH(_EP0_OUT_buffer)
+0009e0   0104     movlb	0x4                	BANKSEL	(_BD0O + 3)
+0009e2   6f03     movwf	0x3, 0x1           	MOVWF	(_BD0O + 3), B
+                                           ;	.line	250; lab1.c	
+0009e4   0e88     movlw	0x88               	MOVLW	0x88
+0009e6   0104     movlb	0x4                	BANKSEL	_BD0O
+0009e8   6f00     movwf	0, 0x1             	MOVWF	_BD0O, B
+                                           ;	.line	251; lab1.c	BD1O.bytecount = MAX_PACKET_SIZE;
+0009ea   0e88     movlw	0x88               	MOVLW	LOW(_EP0_IN_buffer)
+0009ec   0104     movlb	0x4                	BANKSEL	(_BD0I + 2)
+0009ee   6f06     movwf	0x6, 0x1           	MOVWF	(_BD0I + 2), B
+0009f0   0e04     movlw	0x4                	MOVLW	HIGH(_EP0_IN_buffer)
+0009f2   0104     movlb	0x4                	BANKSEL	(_BD0I + 3)
+0009f4   6f07     movwf	0x7, 0x1           	MOVWF	(_BD0I + 3), B
+                                           ;	.line	252; lab1.c	BD1O.address = EP0_OUT_buffer;	// EP0 OUT gets a buffer
+0009f6   0e08     movlw	0x8                	MOVLW	0x08
+0009f8   0104     movlb	0x4                	BANKSEL	_BD0I
+0009fa   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	254; lab1.c	BD1I.address = EP0_IN_buffer;	// EP0 IN gets a buffer
+0009fc   0e08     movlw	0x8                	MOVLW	0x08
+0009fe   0104     movlb	0x4                	BANKSEL	(_BD1O + 1)
+000a00   6f09     movwf	0x9, 0x1           	MOVWF	(_BD1O + 1), B
+                                           ;	.line	255; lab1.c	BD1I.status = 0x08;				// clear UOWN bit (MCU can write)
+000a02   0e80     movlw	0x80               	MOVLW	LOW(_EP0_OUT_buffer)
+000a04   0104     movlb	0x4                	BANKSEL	(_BD1O + 2)
+000a06   6f0a     movwf	0xa, 0x1           	MOVWF	(_BD1O + 2), B
+000a08   0e04     movlw	0x4                	MOVLW	HIGH(_EP0_OUT_buffer)
+000a0a   0104     movlb	0x4                	BANKSEL	(_BD1O + 3)
+000a0c   6f0b     movwf	0xb, 0x1           	MOVWF	(_BD1O + 3), B
+                                           ;	.line	256; lab1.c	
+000a0e   0e88     movlw	0x88               	MOVLW	0x88
+000a10   0104     movlb	0x4                	BANKSEL	_BD1O
+000a12   6f08     movwf	0x8, 0x1           	MOVWF	_BD1O, B
+                                           ;	.line	257; lab1.c	UADDR = 0x00;				// set USB Address to 0
+000a14   0e88     movlw	0x88               	MOVLW	LOW(_EP0_IN_buffer)
+000a16   0104     movlb	0x4                	BANKSEL	(_BD1I + 2)
+000a18   6f0e     movwf	0xe, 0x1           	MOVWF	(_BD1I + 2), B
+000a1a   0e04     movlw	0x4                	MOVLW	HIGH(_EP0_IN_buffer)
+000a1c   0104     movlb	0x4                	BANKSEL	(_BD1I + 3)
+000a1e   6f0f     movwf	0xf, 0x1           	MOVWF	(_BD1I + 3), B
+                                           ;	.line	258; lab1.c	UIR = 0x00;				// clear all the USB interrupt flags
+000a20   0e08     movlw	0x8                	MOVLW	0x08
+000a22   0104     movlb	0x4                	BANKSEL	_BD1I
+000a24   6f0c     movwf	0xc, 0x1           	MOVWF	_BD1I, B
+                                           ;	.line	260; lab1.c	UEIE = 0xFF;			// enable all error interrupts
+000a26   6a6e     clrf	0x6e, 0             	CLRF	_UADDR
+                                           ;	.line	261; lab1.c	USB_USWSTAT = DEFAULT_STATE;
+000a28   6a68     clrf	0x68, 0             	CLRF	_UIR
+                                           ;	.line	262; lab1.c	USB_device_status = 0x01;	// self powered, remote wakeup disabled
+000a2a   0e16     movlw	0x16               	MOVLW	0x16
+000a2c   6e70     movwf	0x70, 0            	MOVWF	_UEP0
+                                           ;	.line	263; lab1.c	} else if (UIRbits.TRNIF) {	
+000a2e   0eff     movlw	0xff               	MOVLW	0xff
+000a30   6e6b     movwf	0x6b, 0            	MOVWF	_UEIE
+                                           ;	.line	264; lab1.c	buf_desc_ptr = (__data void *)((BD_BASE)+(USTAT&0x7C));	// mask out bits 0, 1, and 7 of USTAT for offset into the buffer descriptor table
+000a32   0e01     movlw	0x1                	MOVLW	0x01
+000a34   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+000a36   6f76     movwf	0x76, 0x1          	MOVWF	_USB_USWSTAT, B
+                                           ;	.line	265; lab1.c	USB_buffer_desc.status = buf_desc_ptr->status;
+000a38   0e01     movlw	0x1                	MOVLW	0x01
+000a3a   0100     movlb	0                  	BANKSEL	_USB_device_status
+000a3c   6f77     movwf	0x77, 0x1          	MOVWF	_USB_device_status, B
+000a3e   ef85     goto	0xb0a               	GOTO	_00136_DS_
+000a40   f005
+                                           _00119_DS_:
+                                           ;	.line	266; lab1.c	USB_buffer_desc.bytecount = buf_desc_ptr->bytecount;
+000a42   a668     btfss	0x68, 0x3, 0       	BTFSS	_UIRbits, 3
+000a44   ef85     goto	0xb0a               	GOTO	_00136_DS_
+000a46   f005
+                                           ;	.line	267; lab1.c	USB_buffer_desc.address = buf_desc_ptr->address;
+000a48   0e7c     movlw	0x7c               	MOVLW	0x7c
+000a4a   146c     andwf	0x6c, 0, 0         	ANDWF	_USTAT, W
+000a4c   6e00     movwf	0, 0               	MOVWF	r0x00
+000a4e   6a01     clrf	0x1, 0              	CLRF	r0x01
+000a50   0e04     movlw	0x4                	MOVLW	0x04
+000a52   2601     addwf	0x1, 0x1, 0        	ADDWF	r0x01, F
+                                           ;	.line	268; lab1.c	USB_USTAT = USTAT;		// save the USB status register
+000a54   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+000a56   ffe9
+000a58   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+000a5a   ffea
+000a5c   cfef     movff	0xfef, 0x2         	MOVFF	INDF0, r0x02
+000a5e   f002
+000a60   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+000a62   0100     movlb	0                  	BANKSEL	_USB_buffer_desc
+000a64   6f68     movwf	0x68, 0x1          	MOVWF	_USB_buffer_desc, B
+                                           ;	.line	269; lab1.c	UIRbits.TRNIF = 0;		// clear TRNIF interrupt flag
+000a66   0e01     movlw	0x1                	MOVLW	0x01
+000a68   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+000a6a   6e02     movwf	0x2, 0             	MOVWF	r0x02
+000a6c   0e00     movlw	0                  	MOVLW	0x00
+000a6e   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+000a70   6e03     movwf	0x3, 0             	MOVWF	r0x03
+000a72   c002     movff	0x2, 0xfe9         	MOVFF	r0x02, FSR0L
+000a74   ffe9
+000a76   c003     movff	0x3, 0xfea         	MOVFF	r0x03, FSR0H
+000a78   ffea
+000a7a   cfef     movff	0xfef, 0x2         	MOVFF	INDF0, r0x02
+000a7c   f002
+000a7e   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+000a80   0100     movlb	0                  	BANKSEL	(_USB_buffer_desc + 1)
+000a82   6f69     movwf	0x69, 0x1          	MOVWF	(_USB_buffer_desc + 1), B
+                                           ;	.line	270; lab1.c	USB_error_flags = 0x00;	// clear USB error flags
+000a84   0e02     movlw	0x2                	MOVLW	0x02
+000a86   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+000a88   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+000a8a   2a01     incf	0x1, 0x1, 0         	INCF	r0x01, F
+000a8c   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+000a8e   ffe9
+000a90   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+000a92   ffea
+000a94   cfee     movff	0xfee, 0           	MOVFF	POSTINC0, r0x00
+000a96   f000
+000a98   cfef     movff	0xfef, 0x1         	MOVFF	INDF0, r0x01
+000a9a   f001
+000a9c   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000a9e   0100     movlb	0                  	BANKSEL	(_USB_buffer_desc + 2)
+000aa0   6f6a     movwf	0x6a, 0x1          	MOVWF	(_USB_buffer_desc + 2), B
+000aa2   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+000aa4   0100     movlb	0                  	BANKSEL	(_USB_buffer_desc + 3)
+000aa6   6f6b     movwf	0x6b, 0x1          	MOVWF	(_USB_buffer_desc + 3), B
+                                           ;	.line	271; lab1.c	switch (USB_buffer_desc.status&0x3C) {	// extract PID bits
+000aa8   cf6c     movff	0xf6c, 0x79        	MOVFF	_USTAT, _USB_USTAT
+000aaa   f079
+                                           ;	.line	272; lab1.c	case TOKEN_SETUP:
+000aac   9668     bcf	0x68, 0x3, 0         	BCF	_UIRbits, 3
+000aae   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	273; lab1.c	ProcessSetupToken();
+000ab0   6b7a     clrf	0x7a, 0x1           	CLRF	_USB_error_flags, B
+                                           ;	.line	274; lab1.c	break;
+000ab2   0e3c     movlw	0x3c               	MOVLW	0x3c
+000ab4   0100     movlb	0                  	BANKSEL	_USB_buffer_desc
+000ab6   1568     andwf	0x68, 0, 0x1       	ANDWF	_USB_buffer_desc, W, B
+000ab8   6e00     movwf	0, 0               	MOVWF	r0x00
+000aba   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000abc   0a04     xorlw	0x4                	XORLW	0x04
+000abe   e102     bnz	0xac4                	BNZ	_00152_DS_
+000ac0   ef76     goto	0xaec               	GOTO	_00112_DS_
+000ac2   f005
+                                           _00152_DS_:
+000ac4   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000ac6   0a24     xorlw	0x24               	XORLW	0x24
+000ac8   e102     bnz	0xace                	BNZ	_00154_DS_
+000aca   ef72     goto	0xae4               	GOTO	_00111_DS_
+000acc   f005
+                                           _00154_DS_:
+000ace   5000     movf	0, 0, 0             	MOVF	r0x00, W
+000ad0   0a34     xorlw	0x34               	XORLW	0x34
+000ad2   e102     bnz	0xad8                	BNZ	_00155_DS_
+000ad4   ef6e     goto	0xadc               	GOTO	_00156_DS_
+000ad6   f005
+                                           _00155_DS_:
+000ad8   ef78     goto	0xaf0               	GOTO	_00113_DS_
+000ada   f005
+                                           _00156_DS_:
+                                           ;	.line	276; lab1.c	ProcessInToken();
+000adc   ec90     call	0xb20, 0            	CALL	_ProcessSetupToken
+000ade   f005
+                                           ;	.line	277; lab1.c	break;
+000ae0   ef78     goto	0xaf0               	GOTO	_00113_DS_
+000ae2   f005
+                                           _00111_DS_:
+                                           ;	.line	279; lab1.c	ProcessOutToken();
+000ae4   ec2d     call	0xc5a, 0            	CALL	_ProcessInToken
+000ae6   f006
+                                           ;	.line	280; lab1.c	}
+000ae8   ef78     goto	0xaf0               	GOTO	_00113_DS_
+000aea   f005
+                                           _00112_DS_:
+                                           ;	.line	282; lab1.c	BD0O.bytecount = MAX_PACKET_SIZE;	// ...get ready to receive the next Setup token...
+000aec   ec33     call	0xe66, 0            	CALL	_ProcessOutToken
+000aee   f007
+                                           _00113_DS_:
+000af0   0100     movlb	0                  	BANKSEL	_USB_error_flags
+                                           ;	.line	284; lab1.c	BD0O.status = 0x84;					// ...and issue a protocol stall on EP0
+000af2   a17a     btfss	0x7a, 0, 0x1       	BTFSS	_USB_error_flags, 0, B
+000af4   ef85     goto	0xb0a               	GOTO	_00136_DS_
+000af6   f005
+                                           ;	.line	285; lab1.c	}
+000af8   0e08     movlw	0x8                	MOVLW	0x08
+000afa   0104     movlb	0x4                	BANKSEL	(_BD0O + 1)
+000afc   6f01     movwf	0x1, 0x1           	MOVWF	(_BD0O + 1), B
+                                           ;	.line	286; lab1.c	}
+000afe   0e84     movlw	0x84               	MOVLW	0x84
+000b00   0104     movlb	0x4                	BANKSEL	_BD0I
+000b02   6f04     movwf	0x4, 0x1           	MOVWF	_BD0I, B
+                                           ;	.line	287; lab1.c	}
+000b04   0e84     movlw	0x84               	MOVLW	0x84
+000b06   0104     movlb	0x4                	BANKSEL	_BD0O
+000b08   6f00     movwf	0, 0x1             	MOVWF	_BD0O, B
+                                           _00136_DS_:
+000b0a   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+000b0c   f003
+000b0e   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+000b10   f002
+000b12   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+000b14   f001
+000b16   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+000b18   f000
+000b1a   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+000b1c   ffd9
+000b1e   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lab1__InitUSB	code
+                                           _InitUSB:
+                                           ;	.line	164; lab1.c	(void)*EP1_OUT_buffer;
+000f4c   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+000f4e   ffe5
+000f50   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+000f52   ffd9
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	165; lab1.c	(void)*EP1_IN_buffer;
+000f54   c480     movff	0x480, 0xfe8       	MOVFF	_EP0_OUT_buffer, WREG
+000f56   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	166; lab1.c	(void)*EP2_OUT_buffer;
+000f58   c488     movff	0x488, 0xfe8       	MOVFF	_EP0_IN_buffer, WREG
+000f5a   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	167; lab1.c	(void)*EP2_IN_buffer;
+000f5c   c490     movff	0x490, 0xfe8       	MOVFF	_EP1_OUT_buffer, WREG
+000f5e   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	168; lab1.c	(void)*EP3_OUT_buffer;
+000f60   c498     movff	0x498, 0xfe8       	MOVFF	_EP1_IN_buffer, WREG
+000f62   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	169; lab1.c	(void)*EP3_IN_buffer;
+000f64   c4a0     movff	0x4a0, 0xfe8       	MOVFF	_EP2_OUT_buffer, WREG
+000f66   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	170; lab1.c	(void)*EP4_OUT_buffer;
+000f68   c4a8     movff	0x4a8, 0xfe8       	MOVFF	_EP2_IN_buffer, WREG
+000f6a   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	171; lab1.c	(void)*EP4_IN_buffer;
+000f6c   c4b0     movff	0x4b0, 0xfe8       	MOVFF	_EP3_OUT_buffer, WREG
+000f6e   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	172; lab1.c	(void)*EP5_OUT_buffer;
+000f70   c4b8     movff	0x4b8, 0xfe8       	MOVFF	_EP3_IN_buffer, WREG
+000f72   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	173; lab1.c	(void)*EP5_IN_buffer;
+000f74   c4c0     movff	0x4c0, 0xfe8       	MOVFF	_EP4_OUT_buffer, WREG
+000f76   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	174; lab1.c	(void)*EP6_OUT_buffer;
+000f78   c4c8     movff	0x4c8, 0xfe8       	MOVFF	_EP4_IN_buffer, WREG
+000f7a   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	175; lab1.c	(void)*EP6_IN_buffer;
+000f7c   c4d0     movff	0x4d0, 0xfe8       	MOVFF	_EP5_OUT_buffer, WREG
+000f7e   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	176; lab1.c	(void)*EP7_OUT_buffer;
+000f80   c4d8     movff	0x4d8, 0xfe8       	MOVFF	_EP5_IN_buffer, WREG
+000f82   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	177; lab1.c	(void)*EP7_IN_buffer;
+000f84   c4e0     movff	0x4e0, 0xfe8       	MOVFF	_EP6_OUT_buffer, WREG
+000f86   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	178; lab1.c	(void)*EP8_OUT_buffer;
+000f88   c4e8     movff	0x4e8, 0xfe8       	MOVFF	_EP6_IN_buffer, WREG
+000f8a   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	179; lab1.c	(void)*EP8_IN_buffer;
+000f8c   c4f0     movff	0x4f0, 0xfe8       	MOVFF	_EP7_OUT_buffer, WREG
+000f8e   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	180; lab1.c	(void)*EP9_OUT_buffer;
+000f90   c4f8     movff	0x4f8, 0xfe8       	MOVFF	_EP7_IN_buffer, WREG
+000f92   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	181; lab1.c	(void)*EP9_IN_buffer;
+000f94   c500     movff	0x500, 0xfe8       	MOVFF	_EP8_OUT_buffer, WREG
+000f96   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	182; lab1.c	(void)*EP10_OUT_buffer;
+000f98   c508     movff	0x508, 0xfe8       	MOVFF	_EP8_IN_buffer, WREG
+000f9a   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	183; lab1.c	(void)*EP10_IN_buffer;
+000f9c   c510     movff	0x510, 0xfe8       	MOVFF	_EP9_OUT_buffer, WREG
+000f9e   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	184; lab1.c	(void)*EP11_OUT_buffer;
+000fa0   c518     movff	0x518, 0xfe8       	MOVFF	_EP9_IN_buffer, WREG
+000fa2   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	185; lab1.c	(void)*EP11_IN_buffer;
+000fa4   c520     movff	0x520, 0xfe8       	MOVFF	_EP10_OUT_buffer, WREG
+000fa6   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	186; lab1.c	(void)*EP12_OUT_buffer;
+000fa8   c528     movff	0x528, 0xfe8       	MOVFF	_EP10_IN_buffer, WREG
+000faa   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	187; lab1.c	(void)*EP12_IN_buffer;
+000fac   c530     movff	0x530, 0xfe8       	MOVFF	_EP11_OUT_buffer, WREG
+000fae   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	188; lab1.c	(void)*EP13_OUT_buffer;
+000fb0   c538     movff	0x538, 0xfe8       	MOVFF	_EP11_IN_buffer, WREG
+000fb2   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	189; lab1.c	(void)*EP13_IN_buffer;
+000fb4   c540     movff	0x540, 0xfe8       	MOVFF	_EP12_OUT_buffer, WREG
+000fb6   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	190; lab1.c	(void)*EP14_OUT_buffer;
+000fb8   c548     movff	0x548, 0xfe8       	MOVFF	_EP12_IN_buffer, WREG
+000fba   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	191; lab1.c	(void)*EP14_IN_buffer;
+000fbc   c550     movff	0x550, 0xfe8       	MOVFF	_EP13_OUT_buffer, WREG
+000fbe   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	192; lab1.c	(void)*EP15_OUT_buffer;
+000fc0   c558     movff	0x558, 0xfe8       	MOVFF	_EP13_IN_buffer, WREG
+000fc2   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	193; lab1.c	(void)*EP15_IN_buffer;
+000fc4   c560     movff	0x560, 0xfe8       	MOVFF	_EP14_OUT_buffer, WREG
+000fc6   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	194; lab1.c	UIE = 0x00;					// mask all USB interrupts
+000fc8   c568     movff	0x568, 0xfe8       	MOVFF	_EP14_IN_buffer, WREG
+000fca   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	195; lab1.c	UIR = 0x00;					// clear all USB interrupt flags
+000fcc   c570     movff	0x570, 0xfe8       	MOVFF	_EP15_OUT_buffer, WREG
+000fce   ffe8
+                                           ; ;;!!! pic16_aopOp:1306 called for a spillLocation -- assigning WREG instead --- CHECK
+                                           ;	.line	196; lab1.c	UCFG = 0x10;				// configure USB for low-speed transfers and to use the on-chip transciever and pull-up resistor
+000fd0   c578     movff	0x578, 0xfe8       	MOVFF	_EP15_IN_buffer, WREG
+000fd2   ffe8
+                                           ;	.line	197; lab1.c	UCON = 0x08;				// enable the USB module and its supporting circuitry
+000fd4   6a69     clrf	0x69, 0             	CLRF	_UIE
+                                           ;	.line	198; lab1.c	USB_curr_config = 0x00;
+000fd6   6a68     clrf	0x68, 0             	CLRF	_UIR
+                                           ;	.line	199; lab1.c	USB_USWSTAT = 0x00;			// default to powered state
+000fd8   0e10     movlw	0x10               	MOVLW	0x10
+000fda   6e6f     movwf	0x6f, 0            	MOVWF	_UCFG
+                                           ;	.line	200; lab1.c	USB_device_status = 0x01;
+000fdc   0e08     movlw	0x8                	MOVLW	0x08
+000fde   6e6d     movwf	0x6d, 0            	MOVWF	_UCON
+000fe0   0100     movlb	0                  	BANKSEL	_USB_curr_config
+                                           ;	.line	201; lab1.c	USB_dev_req = NO_REQUEST;	// No device requests in process
+000fe2   6b75     clrf	0x75, 0x1           	CLRF	_USB_curr_config, B
+000fe4   0100     movlb	0                  	BANKSEL	_USB_USWSTAT
+                                           ;	.line	202; lab1.c	TRISB = 0x00;
+000fe6   6b76     clrf	0x76, 0x1           	CLRF	_USB_USWSTAT, B
+                                           ;	.line	203; lab1.c	PORTB = 0xFF;
+000fe8   0e01     movlw	0x1                	MOVLW	0x01
+000fea   0100     movlb	0                  	BANKSEL	_USB_device_status
+000fec   6f77     movwf	0x77, 0x1          	MOVWF	_USB_device_status, B
+                                           ;	.line	204; lab1.c	while (UCONbits.SE0);		// wait for the first SE0 to end
+000fee   0eff     movlw	0xff               	MOVLW	0xff
+000ff0   0100     movlb	0                  	BANKSEL	_USB_dev_req
+000ff2   6f78     movwf	0x78, 0x1          	MOVWF	_USB_dev_req, B
+                                           ;	.line	205; lab1.c	}
+000ff4   6a93     clrf	0x93, 0             	CLRF	_TRISB
+                                           ;	.line	206; lab1.c	
+000ff6   0eff     movlw	0xff               	MOVLW	0xff
+000ff8   6e81     movwf	0x81, 0            	MOVWF	_PORTB
+                                           _00105_DS_:
+                                           ;	.line	207; lab1.c	void ServiceUSB(void) {
+000ffa   ba6d     btfsc	0x6d, 0x5, 0       	BTFSC	_UCONbits, 5
+000ffc   effd     goto	0xffa               	GOTO	_00105_DS_
+000ffe   f007
+001000   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+001002   ffd9
+001004   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block for Ival
+                                           	code
+                                           _Device:
+001006   0112     movlb	0x12               	DB	0x12, 0x01, 0x10, 0x01, 0x00, 0x00, 0x00, 0x08, 0xd8, 0x04, 0x01, 0x00
+001008   0110     movlb	0x10               
+00100a   0000     nop                      
+00100c   0800     sublw	0                  
+00100e   04d8     decf	0xd8, 0, 0          
+001010   0001     dw	0x1  ;unknown opcode  
+001012   0000     nop                      	DB	0x00, 0x00, 0x01, 0x02, 0x00, 0x01
+001014   0201     mulwf	0x1, 0             
+001016   0100     movlb	0                  
+                                           ; ; Starting pCode block for Ival
+                                           _Configuration1:
+001018   0209     mulwf	0x9, 0             	DB	0x09, 0x02, 0x12, 0x00, 0x01, 0x01, 0x00, 0xa0, 0x32, 0x09, 0x04, 0x00
+00101a   0012     return	0                 
+00101c   0101     movlb	0x1                
+00101e   a000     btfss	0, 0, 0            
+001020   0932     iorlw	0x32               
+001022   0004     clrwdt                   
+001024   0000     nop                      	DB	0x00, 0x00, 0xff, 0x00, 0xff, 0x00
+001026   00ff     reset                    
+001028   00ff     reset                    
+                                           ; ; Starting pCode block for Ival
+                                           _String0:
+00102a   0304     mulwf	0x4, 0x1           	DB	0x04, 0x03, 0x09, 0x04
+00102c   0409     decf	0x9, 0, 0           
+                                           ; ; Starting pCode block for Ival
+                                           _String1:
+00102e   0336     mulwf	0x36, 0x1          	DB	0x36, 0x03, 0x4d, 0x00, 0x69, 0x00, 0x63, 0x00, 0x72, 0x00, 0x6f, 0x00
+001030   004d     dw	0x4d  ;unknown opcode 
+001032   0069     dw	0x69  ;unknown opcode 
+001034   0063     dw	0x63  ;unknown opcode 
+001036   0072     dw	0x72  ;unknown opcode 
+001038   006f     dw	0x6f  ;unknown opcode 
+00103a   0063     dw	0x63  ;unknown opcode 	DB	0x63, 0x00, 0x68, 0x00, 0x69, 0x00, 0x70, 0x00, 0x20, 0x00, 0x54, 0x00
+00103c   0068     dw	0x68  ;unknown opcode 
+00103e   0069     dw	0x69  ;unknown opcode 
+001040   0070     dw	0x70  ;unknown opcode 
+001042   0020     dw	0x20  ;unknown opcode 
+001044   0054     dw	0x54  ;unknown opcode 
+001046   0065     dw	0x65  ;unknown opcode 	DB	0x65, 0x00, 0x63, 0x00, 0x68, 0x00, 0x6e, 0x00, 0x6f, 0x00, 0x6c, 0x00
+001048   0063     dw	0x63  ;unknown opcode 
+00104a   0068     dw	0x68  ;unknown opcode 
+00104c   006e     dw	0x6e  ;unknown opcode 
+00104e   006f     dw	0x6f  ;unknown opcode 
+001050   006c     dw	0x6c  ;unknown opcode 
+001052   006f     dw	0x6f  ;unknown opcode 	DB	0x6f, 0x00, 0x67, 0x00, 0x79, 0x00, 0x2c, 0x00, 0x20, 0x00, 0x49, 0x00
+001054   0067     dw	0x67  ;unknown opcode 
+001056   0079     dw	0x79  ;unknown opcode 
+001058   002c     dw	0x2c  ;unknown opcode 
+00105a   0020     dw	0x20  ;unknown opcode 
+00105c   0049     dw	0x49  ;unknown opcode 
+00105e   006e     dw	0x6e  ;unknown opcode 	DB	0x6e, 0x00, 0x63, 0x00, 0x2e, 0x00
+001060   0063     dw	0x63  ;unknown opcode 
+001062   002e     dw	0x2e  ;unknown opcode 
+                                           ; ; Starting pCode block for Ival
+                                           _String2:
+001064   0344     mulwf	0x44, 0x1          	DB	0x44, 0x03, 0x45, 0x00, 0x4e, 0x00, 0x47, 0x00, 0x52, 0x00, 0x20, 0x00
+001066   0045     dw	0x45  ;unknown opcode 
+001068   004e     dw	0x4e  ;unknown opcode 
+00106a   0047     dw	0x47  ;unknown opcode 
+00106c   0052     dw	0x52  ;unknown opcode 
+00106e   0020     dw	0x20  ;unknown opcode 
+001070   0032     dw	0x32  ;unknown opcode 	DB	0x32, 0x00, 0x32, 0x00, 0x31, 0x00, 0x30, 0x00, 0x20, 0x00, 0x50, 0x00
+001072   0032     dw	0x32  ;unknown opcode 
+001074   0031     dw	0x31  ;unknown opcode 
+001076   0030     dw	0x30  ;unknown opcode 
+001078   0020     dw	0x20  ;unknown opcode 
+00107a   0050     dw	0x50  ;unknown opcode 
+00107c   0049     dw	0x49  ;unknown opcode 	DB	0x49, 0x00, 0x43, 0x00, 0x31, 0x00, 0x38, 0x00, 0x46, 0x00, 0x32, 0x00
+00107e   0043     dw	0x43  ;unknown opcode 
+001080   0031     dw	0x31  ;unknown opcode 
+001082   0038     dw	0x38  ;unknown opcode 
+001084   0046     dw	0x46  ;unknown opcode 
+001086   0032     dw	0x32  ;unknown opcode 
+001088   0034     dw	0x34  ;unknown opcode 	DB	0x34, 0x00, 0x35, 0x00, 0x35, 0x00, 0x20, 0x00, 0x55, 0x00, 0x53, 0x00
+00108a   0035     dw	0x35  ;unknown opcode 
+00108c   0035     dw	0x35  ;unknown opcode 
+00108e   0020     dw	0x20  ;unknown opcode 
+001090   0055     dw	0x55  ;unknown opcode 
+001092   0053     dw	0x53  ;unknown opcode 
+001094   0042     dw	0x42  ;unknown opcode 	DB	0x42, 0x00, 0x20, 0x00, 0x46, 0x00, 0x69, 0x00, 0x72, 0x00, 0x6d, 0x00
+001096   0020     dw	0x20  ;unknown opcode 
+001098   0046     dw	0x46  ;unknown opcode 
+00109a   0069     dw	0x69  ;unknown opcode 
+00109c   0072     dw	0x72  ;unknown opcode 
+00109e   006d     dw	0x6d  ;unknown opcode 
+0010a0   0077     dw	0x77  ;unknown opcode 	DB	0x77, 0x00, 0x61, 0x00, 0x72, 0x00, 0x65, 0x00
+0010a2   0061     dw	0x61  ;unknown opcode 
+0010a4   0072     dw	0x72  ;unknown opcode 
+0010a6   0065     dw	0x65  ;unknown opcode 
+                                           
+                                           
+                                           ; Statistics:
+                                           ; code size:	 4240 (0x1090) bytes ( 3.23%)
+                                           ;           	 2120 (0x0848) words
+                                           ; udata size:	  408 (0x0198) bytes (22.77%)
+                                           ; access size:	   12 (0x000c) bytes
+                                           
+                                           
+                                           	end
